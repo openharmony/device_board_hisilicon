@@ -3,7 +3,7 @@
     "parts": {
         "hisilicon_products": {
             "module_list": [
-                "//device/hisilicon/build:products_group"
+                "//device/board/hisilicon/hispark_taurus:hispark_taurus"
             ]
         }
     }
