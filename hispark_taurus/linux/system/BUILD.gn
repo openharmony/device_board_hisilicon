@@ -27,13 +27,6 @@ ohos_prebuilt_etc("vb_config_user.ini") {
   part_name = "hisilicon_products"
 }
 
-ohos_prebuilt_etc("logo.rgb") {
-  source = "logo.rgb"
-  module_install_dir = "./"
-  install_images = [ "vendor" ]
-  part_name = "hisilicon_products"
-}
-
 ohos_copy("u-boot-hi3516dv300_emmc.bin") {
   sources = [ "//device/board/hisilicon/hispark_taurus/uboot/out/boot/u-boot-hi3516dv300_emmc.bin" ]
   outputs =
@@ -41,26 +34,15 @@ ohos_copy("u-boot-hi3516dv300_emmc.bin") {
 }
 
 ohos_copy("Hi3516DV300-emmc.xml") {
-  if (disable_init_two_stages) {
-    sources = [ "Hi3516DV300-emmc-uImage.xml" ]
-  } else {
-    sources = [ "Hi3516DV300-emmc-bootImage.xml" ]
-  }
+  sources = [ "Hi3516DV300-emmc.xml" ]
   outputs = [ "$root_build_dir/packages/phone/images/Hi3516DV300-emmc.xml" ]
-}
-
-ohos_copy("ohos.its") {
-  sources = [ "ohos.its" ]
-  outputs = [ "$root_build_dir/packages/phone/images/ohos.its" ]
 }
 
 group("sys_files") {
   deps = [
     ":Hi3516DV300-emmc.xml",
-    ":fstab.Hi3516DV300",
-    ":logo.rgb",
-    ":ohos.its",
     ":u-boot-hi3516dv300_emmc.bin",
+    ":fstab.Hi3516DV300",
     ":vb_config_user.ini",
   ]
 }
