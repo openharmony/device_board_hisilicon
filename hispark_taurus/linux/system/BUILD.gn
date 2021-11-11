@@ -28,7 +28,7 @@ ohos_prebuilt_etc("vb_config_user.ini") {
 }
 
 ohos_copy("u-boot-hi3516dv300_emmc.bin") {
-  sources = [ "//device/board/hisilicon/hispark_taurus/uboot/out/boot/u-boot-hi3516dv300_emmc.bin" ]
+  sources = [ "//device/soc/hisilicon/hi3516dv300/uboot/u-boot-hi3516dv300_emmc.bin" ]
   outputs =
       [ "$root_build_dir/packages/phone/images/u-boot-hi3516dv300_emmc.bin" ]
 }
