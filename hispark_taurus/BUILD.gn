@@ -12,5 +12,10 @@ if (defined(ohos_lite)) {
 } else {
   group("hispark_taurus") {
     deps = [ "linux:hi3516dv300_group" ]
+
+    deps += [
+        "//device/board/hisilicon/hal/media:hardware_group",
+        "//device/board/hisilicon/hal/middleware:middleware_group",
+    ]
   }
 }
