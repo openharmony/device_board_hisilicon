@@ -13,12 +13,12 @@
 import("//build/lite/config/component/lite_component.gni")
 
 config("engine_nnie_config") {
-  include_dirs = [ "//device/hisilicon/hardware/ai/hal/$board_name/include" ]
+  include_dirs = [ "//device/board/hisilicon/hal/ai/$board_name/include" ]
 }
 
 copy("engine_nnie_sdk") {
   sources = [
-    "//device/hisilicon/hardware/ai/hal/$board_name/libs/libnnie_adapter.so",
+    "//device/board/hisilicon/hal/ai/$board_name/libs/libnnie_adapter.so",
   ]
   outputs = [ "$root_out_dir/{{source_file_part}}" ]
   public_configs = [ ":engine_nnie_config" ]
