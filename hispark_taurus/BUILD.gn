@@ -14,8 +14,8 @@ if (defined(ohos_lite)) {
     deps = [ "linux:hi3516dv300_group" ]
 
     deps += [
-        "//device/board/hisilicon/hal/media:hardware_group",
-        "//device/board/hisilicon/hal/middleware:middleware_group",
+        "//device/soc/hisilicon/common/hi35xx_hal/media:hardware_group",
+        "//device/soc/hisilicon/common/hi35xx_hal/middleware:middleware_group",
     ]
   }
 }
