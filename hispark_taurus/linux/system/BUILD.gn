@@ -27,6 +27,13 @@ ohos_prebuilt_etc("vb_config_user.ini") {
   part_name = "hisilicon_products"
 }
 
+ohos_prebuilt_etc("logo.rgb") {
+  source = "../updater/logo.rgb"
+  module_install_dir = "./"
+  install_images = [ "vendor" ]
+  part_name = "hisilicon_products"
+}
+
 ohos_copy("u-boot-hi3516dv300_emmc.bin") {
   sources = [ "//device/soc/hisilicon/hi3516dv300/uboot/u-boot-hi3516dv300_emmc.bin" ]
   outputs =
@@ -34,15 +41,37 @@ ohos_copy("u-boot-hi3516dv300_emmc.bin") {
 }
 
 ohos_copy("Hi3516DV300-emmc.xml") {
-  sources = [ "Hi3516DV300-emmc.xml" ]
+  if (!enable_ramdisk) {
+    sources = [ "Hi3516DV300-emmc-uImage.xml" ]
+  } else {
+    sources = [ "Hi3516DV300-emmc-bootImage.xml" ]
+  }
   outputs = [ "$root_build_dir/packages/phone/images/Hi3516DV300-emmc.xml" ]
+}
+
+if (enable_ramdisk) {
+  ohos_copy("ohos.its") {
+    sources = [ "../updater/ohos.its" ]
+    outputs = [ "$root_build_dir/ohos.its" ]
+  }
+  ohos_copy("fstab.required") {
+    sources = [ "../updater/config/fstab.Hi3516DV300" ]
+    outputs = [ "$root_build_dir/fstab.required" ]
+  }
 }
 
 group("sys_files") {
   deps = [
     ":Hi3516DV300-emmc.xml",
-    ":u-boot-hi3516dv300_emmc.bin",
     ":fstab.Hi3516DV300",
+    ":logo.rgb",
+    ":u-boot-hi3516dv300_emmc.bin",
     ":vb_config_user.ini",
   ]
+  if (enable_ramdisk) {
+    deps += [
+      ":fstab.required",
+      ":ohos.its",
+    ]
+  }
 }
