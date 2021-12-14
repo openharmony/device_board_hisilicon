@@ -15,7 +15,7 @@ endif
 endif
 
 ifeq ($(OSDRV_CROSS), )
-OSDRV_CROSS=$(OSDRV_DIR)/../../../../../prebuilts/gcc/linux-x86/arm/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi
+OSDRV_CROSS=$(OSDRV_DIR)/../../../../../prebuilts/gcc/linux-x86/arm/gcc-linaro-7.5.0-arm-linux-gnueabi/bin/arm-linux-gnueabi
 endif
 
 UBOOT_VER:=u-boot-2020.01
@@ -28,7 +28,7 @@ else
 export UBOOT_CONFIG:=$(CHIP)_config
 endif
 
-NORMAL_UBOOT_DIR:=$(OSDRV_DIR)/../../../third_party/uboot
+NORMAL_UBOOT_DIR:=$(OSDRV_DIR)/../../../../../device/hisilicon/third_party/uboot
 
 ##########################################################################################
 #	set task
