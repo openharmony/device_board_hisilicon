@@ -56,7 +56,7 @@ Note:If the text contains special characters, please escape them according to th
 -->
 <configuration>
     <oatconfig>
-		<licensefile>NOTICE</licensefile>
+		<licensefile>hispark_taurus/linux/LICENSE|hispark_taurus/liteos_a/board/LICENSE|hispark_taurus/uboot/reg/LICENSE|hispark_aries/uboot/reg/LICENSE|</licensefile>
         <policylist>
             <policy name="projectPolicy" desc="">
 				<policyitem type="copyright" name="Copyright (c) 2020 HiSilicon (Shanghai) Technologies CO., LIMITED." path=".*" desc="HiSilicon copyright"/>
