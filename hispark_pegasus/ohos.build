@@ -2,7 +2,7 @@
   "parts": {
     "device_hispark_pegasus": {
       "module_list": [
-        ":hispark_pegasus"
+        "//device/soc/hisilicon/hi3861v100:hispark_pegasus"
       ]
     }
   },
