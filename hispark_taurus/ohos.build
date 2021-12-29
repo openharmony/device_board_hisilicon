@@ -2,7 +2,7 @@
   "parts": {
     "device_hispark_taurus": {
       "module_list": [
-        "//device/board/hisilicon/hispark_taurus:hispark_taurus",
+        "//device/board/hisilicon/hispark_taurus:hispark_taurus"
       ]
     }
   },
