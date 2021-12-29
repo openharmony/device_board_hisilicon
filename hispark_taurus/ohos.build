@@ -1,11 +1,10 @@
 {
-    "subsystem": "hisilicon_products",
-    "parts": {
-        "hisilicon_products": {
-            "module_list": [
-                "//device/board/hisilicon/hispark_taurus:hispark_taurus",
-                "//device/soc/hisilicon/common/platform/wifi/hi3881v100/firmware:wifi_firmware"
-            ]
-        }
+  "parts": {
+    "device_hispark_taurus": {
+      "module_list": [
+        "//device/board/hisilicon/hispark_taurus:hispark_taurus",
+      ]
     }
+  },
+  "subsystem": "hisilicon_products"
 }

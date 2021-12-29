@@ -2,7 +2,7 @@
   "parts": {
     "device_hispark_aries": {
       "module_list": [
-        ":hispark_aries"
+        "//device/board/hisilicon/hispark_aries:hispark_aries"
       ]
     }
   },
