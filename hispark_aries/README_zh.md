@@ -2,6 +2,8 @@
 
 -   [简介](#section11660541593)
 -   [目录](#section161941989596)
+-   [安装教程](#section161941989597)
+-   [使用说明](#section161941989598)
 -   [约束](#section119744591305)
 -   [编译构建](#section137768191623)
 -   [协议说明](#section1312121216216)
@@ -27,6 +29,16 @@
     └── secureboot_release # 安全启动相关的编译脚本
 ```
 
+## 安装教程<a name="section161941989597"></a>
+
+liteos-a请参考：https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-lite-steps-hi3516-setting.md
+linux请参考：https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-standard-running-hi3516-build.md
+
+## 安装教程<a name="section161941989598"></a>
+
+liteos-a请参考：https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-lite-steps-hi3516.md
+linux请参考：https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-standard-running-hi3516.md
+
 ## 约束<a name="section119744591305"></a>
 
 当前支持Hi3518EV300芯片。
@@ -45,7 +57,7 @@
 
 参见对应目录的LICENSE文件及代码声明
 
-### third\_party许可说明<a name="section129654513264"></a>
+### 许可说明<a name="section129654513264"></a>
 
 third\_party\\uboot\\u-boot-2020.01为U-Boot开源代码，遵循软件版本自带的开源许可声明，具体请参看third\_party\\uboot\\u-boot-2020.01\\Licenses目录下的README。
 
