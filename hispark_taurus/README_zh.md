@@ -2,6 +2,8 @@
 
 -   [简介](#section11660541593)
 -   [目录](#section161941989596)
+-   [安装教程](#section161941989597)
+-   [使用说明](#section161941989598)
 -   [约束](#section119744591305)
 -   [编译构建](#section137768191623)
 -   [协议说明](#section1312121216216)
@@ -30,6 +32,16 @@
     ├── secureboot_ohos    # 安全启动相关的编译脚本
     └── secureboot_release # 安全启动相关的编译脚本
 ```
+
+## 安装教程<a name="section161941989597"></a>
+
+liteos-a请参考：https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-lite-steps-hi3516-setting.md
+linux请参考：https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-standard-running-hi3516-build.md
+
+## 安装教程<a name="section161941989598"></a>
+
+liteos-a请参考：https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-lite-steps-hi3516.md
+linux请参考：https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-standard-running-hi3516.md
 
 ## 约束<a name="section119744591305"></a>
 
