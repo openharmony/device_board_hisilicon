@@ -31,13 +31,11 @@
 
 ## 安装教程<a name="section161941989597"></a>
 
-liteos-a请参考：https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-lite-steps-hi3516-setting.md
-linux请参考：https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-standard-running-hi3516-build.md
+liteos-a请参考：https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-lite-steps-hi3518-setting.md
 
 ## 安装教程<a name="section161941989598"></a>
 
-liteos-a请参考：https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-lite-steps-hi3516.md
-linux请参考：https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-standard-running-hi3516.md
+liteos-a请参考：https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-lite-steps-hi3518.md
 
 ## 约束<a name="section119744591305"></a>
 
