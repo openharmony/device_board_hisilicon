@@ -16,26 +16,27 @@ import("//build/ohos.gni")
 ohos_prebuilt_etc("fstab.Hi3516DV300") {
   source = "../updater/config/fstab.Hi3516DV300"
   module_install_dir = "etc"
-  install_images = [ "vendor" ]
+  install_images = [ vendor_base_dir ]
   part_name = "hisilicon_products"
 }
 
 ohos_prebuilt_etc("vb_config_user.ini") {
   source = "../updater/config/vb_config_user.ini"
   module_install_dir = "./"
-  install_images = [ "vendor" ]
+  install_images = [ vendor_base_dir ]
   part_name = "hisilicon_products"
 }
 
 ohos_prebuilt_etc("logo.rgb") {
   source = "../updater/logo.rgb"
   module_install_dir = "./"
-  install_images = [ "vendor" ]
+  install_images = [ vendor_base_dir ]
   part_name = "hisilicon_products"
 }
 
 ohos_copy("u-boot-hi3516dv300_emmc.bin") {
-  sources = [ "//device/soc/hisilicon/hi3516dv300/uboot/u-boot-hi3516dv300_emmc.bin" ]
+  sources =
+      [ "//device/soc/hisilicon/hi3516dv300/uboot/u-boot-hi3516dv300_emmc.bin" ]
   outputs =
       [ "$root_build_dir/packages/phone/images/u-boot-hi3516dv300_emmc.bin" ]
 }
