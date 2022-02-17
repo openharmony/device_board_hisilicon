@@ -14,10 +14,10 @@ import("//build/ohos.gni")
 
 ohos_copy("all_image_conf") {
   sources = [
+    "ramdisk_resource_config.ini",
     "system_image_conf.txt",
     "userdata_image_conf.txt",
     "vendor_image_conf.txt",
-    "ramdisk_resource_config.ini",
   ]
   outputs = [ "${product_output_dir}/imagesconf/{{source_file_part}}" ]
 }
