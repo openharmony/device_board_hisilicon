@@ -1,0 +1,10 @@
+{
+    "subsystem": "hisilicon_products",
+    "parts": {
+        "hisilicon_products": {
+            "module_list": [
+                "//device/board/hisilicon/hispark_phoenix/linux:hispark_phoenix"
+            ]
+        }
+    }
+}

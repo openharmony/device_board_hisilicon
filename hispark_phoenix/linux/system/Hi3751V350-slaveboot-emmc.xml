@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="GB2312" ?>
+<Partition_Info ProgrammerFile="">
+<Part Sel="1" PartitionName="fastboot" FlashType="emmc" FileSystem="none" Start="0" Length="1M" SelectFile="fastboot.bin"/>
+<Part Sel="1" PartitionName="bootargs" FlashType="emmc" FileSystem="none" Start="1M" Length="1M" SelectFile="bootargs.bin"/>
+<Part Sel="1" PartitionName="bootargsbak" FlashType="emmc" FileSystem="none" Start="2M" Length="1M" SelectFile="bootargs.bin"/>
+<Part Sel="1" PartitionName="slaveboot" FlashType="emmc" FileSystem="none" Start="3M" Length="2M" SelectFile="slaveboot.bin"/>
+<Part Sel="1" PartitionName="recovery" FlashType="emmc" FileSystem="none" Start="5M" Length="40M" SelectFile=""/>
+<Part Sel="1" PartitionName="panelparam" FlashType="emmc" FileSystem="none" Start="45M" Length="8M" SelectFile="panel.img"/>
+<Part Sel="1" PartitionName="deviceinfo" FlashType="emmc" FileSystem="none" Start="53M" Length="2M" SelectFile=""/>
+<Part Sel="1" PartitionName="logo" FlashType="emmc" FileSystem="none" Start="55M" Length="40M" SelectFile="logo.img"/>
+<Part Sel="1" PartitionName="boot" FlashType="emmc" FileSystem="none" Start="95M" Length="30M" SelectFile="uImage"/>
+<Part Sel="1" PartitionName="ramdisk" FlashType="emmc" FileSystem="none" Start="125M" Length="10M" SelectFile="./../../../ramdisk.img"/>
+<Part Sel="1" PartitionName="dtbo" FlashType="emmc" FileSystem="none" Start="135M" Length="1M" SelectFile="dtbo.img"/>
+<Part Sel="1" PartitionName="atf" FlashType="emmc" FileSystem="none" Start="136M" Length="2M" SelectFile="atf.bin"/>
+<Part Sel="0" PartitionName="trustedcore" FlashType="emmc" FileSystem="none" Start="138M" Length="8M" SelectFile=""/>
+<Part Sel="1" PartitionName="securestore" FlashType="emmc" FileSystem="ext3/4" Start="146M" Length="10M" SelectFile=""/>
+<Part Sel="0" PartitionName="versioninfo" FlashType="emmc" FileSystem="none" Start="156M" Length="1M" SelectFile=""/>
+<Part Sel="0" PartitionName="misc" FlashType="emmc" FileSystem="none" Start="157M" Length="1M" SelectFile=""/>
+<Part Sel="1" PartitionName="bootmusic" FlashType="emmc" FileSystem="none" Start="158M" Length="10M" SelectFile=""/>
+<Part Sel="1" PartitionName="bootmusicsec" FlashType="emmc" FileSystem="none" Start="168M" Length="10M" SelectFile=""/>
+<Part Sel="1" PartitionName="tcon" FlashType="emmc" FileSystem="none" Start="178M" Length="80M" SelectFile=""/>
+<Part Sel="0" PartitionName="demura" FlashType="emmc" FileSystem="none" Start="258M" Length="4M" SelectFile=""/>
+<Part Sel="1" PartitionName="system" FlashType="emmc" FileSystem="ext3/4" Start="262M" Length="3307M" SelectFile="system.img"/>
+<Part Sel="1" PartitionName="vendor" FlashType="emmc" FileSystem="ext3/4" Start="3569M" Length="300M" SelectFile="vendor.img"/>
+<Part Sel="1" PartitionName="atv" FlashType="emmc" FileSystem="ext3/4" Start="3869M" Length="50M" SelectFile=""/>
+<Part Sel="1" PartitionName="log" FlashType="emmc" FileSystem="ext3/4" Start="3919M" Length="60M" SelectFile=""/>
+<Part Sel="1" PartitionName="cache" FlashType="emmc" FileSystem="ext3/4" Start="3979M" Length="100M" SelectFile=""/>
+<Part Sel="1" PartitionName="userdata" FlashType="emmc" FileSystem="ext3/4" Start="4079M" Length="5119M" SelectFile="userdata.img"/>
+</Partition_Info>
