@@ -23,8 +23,6 @@
 /* Disable write dm
 #define DDR_WRITE_DM_DISABLE */
 
-#define DDR_PHY_NUM              1 /* phy number */
-
 #define DDR_DMC_PER_PHY_MAX      2 /* dmc number per phy max */
 
 #define DDR_AXI_SWITCH_NUM       4 /* ddr training axi switch number */
@@ -38,6 +36,12 @@
 #define DDR_REG_BASE_DMC0		0x120d8000
 /* [CUSTOM] DDR DMC1 base register */
 #define DDR_REG_BASE_DMC1		0x120d8000
+
+#ifdef DDR_REG_BASE_PHY1
+#define DDR_PHY_NUM              2 /* phy number */
+#else
+#define DDR_PHY_NUM              1 /* phy number */
+#endif
 
 #ifdef DDR_REG_BASE_PHY1
 /* [CUSTOM] DDR DMC2 base register */
