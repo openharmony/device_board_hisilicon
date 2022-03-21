@@ -1,8 +1,19 @@
-// SPDX-License-Identifier: GPL-2.0
 /*
- * Copyright (c) 2020 HiSilicon (Shanghai) Technologies CO., LIMITED.
+ * Copyright (C) 2021 HiSilicon (Shanghai) Technologies CO., LIMITED.
  *
- * Description: DDR training implement
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
 #include "ddr_training_impl.h"
@@ -1648,7 +1659,7 @@ int ddr_hw_training_ctl(struct ddr_cfg_st *cfg)
 		ddr_write(temp, base_phy + 0x64); /* restore */
 
 		temp = ddr_read(base_phy + 0x48);
-		ddr_write(temp & 0xfffffffe, base_phy + 0x48); /* todo rank0 */
+		ddr_write(temp & 0xfffffffe, base_phy + 0x48);
 
 		result += ddr_hw_training_process(cfg, item & PHY_HW_GP_VREF_AC);
 
@@ -3314,28 +3325,12 @@ static void ddr_lpca_get_bit(struct ca_data_st *data)
 	//unsigned int swap_sel;
 
 	/* get ca bit in four register  */
-	#if 0
-	for (index = 0; index < (DDR_PHY_CA_REG_MAX - 1); index++) {
-		ddr_write(index + 1, data->base_phy + DDR_PHY_CATSWAPINDEX);
-		swap_sel = ddr_read(data->base_phy + DDR_PHY_CATSWAPSEL);
-
-		data->bits[index * 2].bit_p =
-			swap_sel & PHY_CATSWAPSEL_BIT_MASK;
-		data->bits[index * 2].bit_n =
-			(swap_sel >> 8) & PHY_CATSWAPSEL_BIT_MASK;
-		data->bits[index * 2 + 1].bit_p =
-			(swap_sel >> 16) & PHY_CATSWAPSEL_BIT_MASK;
-		data->bits[index * 2 + 1].bit_n =
-			(swap_sel >> 24) & PHY_CATSWAPSEL_BIT_MASK;
-	}
-	#else /* for HiMVPV200 */
 	for (index = 0; index < (DDR_PHY_CA_REG_MAX - 1); index++) {
 		data->bits[index * 2].bit_p =index*4+ 0;
 		data->bits[index * 2].bit_n =index*4+ 1;
 		data->bits[index * 2 + 1].bit_p =index*4+ 2;
 		data->bits[index * 2 + 1].bit_n =index*4+ 3;
 	}
-	#endif
 
 	/**
 	 * set ca bit for ca4 and ca9
