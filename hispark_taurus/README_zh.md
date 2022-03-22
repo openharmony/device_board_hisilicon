@@ -13,6 +13,8 @@
 
 ## 简介<a name="section11660541593"></a>
 
+[开发板介绍](https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-lite-introduction-hi3516.md)
+
 本目录主要用于放置hispark_taurus开发板相关内容，详情参见目录章节。
 
 ## 目录<a name="section161941989596"></a>
