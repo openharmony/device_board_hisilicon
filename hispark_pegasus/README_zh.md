@@ -1,4 +1,4 @@
-# HiSpark\_taurus介绍<a name="ZH-CN_TOPIC_0000001142448981"></a>
+# HiSpark\_pegasus介绍<a name="ZH-CN_TOPIC_0000001142448981"></a>
 
 -   [简介](#section11660541593)
 -   [安装教程](#section161941989597)
@@ -11,11 +11,7 @@
 
 ## 简介<a name="section11660541593"></a>
 
-<<<<<<< HEAD
 本目录主要用于放置hispark_pegasus开发板相关内容。
-=======
-本目录主要用于放置hispark_pegasus开发板相关内容，详情参见目录章节。
->>>>>>> 9380177fb103770b0a0e385eedd03ddffcb53ba7
 
 [开发板介绍](https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-lite-steps-hi3861.md)
 
