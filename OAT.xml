@@ -105,6 +105,23 @@ Note:If the text contains special characters, please escape them according to th
 				<filteritem type="filename" name="mkimage" desc="The third-party tool mkimage comes from device/hisilicon/third_party/uboot in where its license and copyright information were retained"/>
 				<filteritem type="filename" name="rsa_private_key2048.pem" desc="key value and cannot add extra info"/>
   			</filefilter>
+			<filefilter name="binaryFileTypePolicyFilter" desc="Filters for binary file policies" >
+                <filteritem type="filepath" name="hispark_taurus/linux/system_hap/Launcher.hap" desc="hap not identify"/>
+                <filteritem type="filepath" name="hispark_taurus/linux/system_hap/Launcher_Settings.hap" desc="hap not identify"/>
+                <filteritem type="filepath" name="hispark_taurus/linux/system_hap/SettingsData.hap" desc="hap not identify"/>
+                <filteritem type="filepath" name="hispark_taurus/linux/system_hap/SystemUI.hap" desc="hap not identify"/>
+                <filteritem type="filepath" name="hispark_taurus/linux/system_hap/SystemUI-NavigationBar.hap" desc="hap not identify"/>
+                <filteritem type="filepath" name="hispark_taurus/linux/system_hap/SystemUI-StatusBar.hap" desc="hap not identify"/>
+                <filteritem type="filepath" name="hispark_taurus/linux/system_hap/SystemUI-NotificationManagement.hap" desc="hap not identify"/>
+                <filteritem type="filepath" name="hispark_taurus/linux/system_hap/SystemUI-VolumePanel.hap" desc="hap not identify"/>
+                <filteritem type="filepath" name="hispark_taurus/linux/system_hap/SystemUI-DropdownPanel.hap" desc="hap not identify"/>
+                <filteritem type="filepath" name="hispark_taurus/linux/system_hap/ScreenShot.hap" desc="hap not identify"/>
+                <filteritem type="filepath" name="hispark_taurus/linux/system_hap/Camera.hap" desc="hap not identify"/>
+                <filteritem type="filepath" name="hispark_taurus/linux/system_hap/Note.hap" desc="hap not identify"/>
+                <filteritem type="filepath" name="hispark_taurus/linux/system_hap/CallUI.hap" desc="hap not identify"/>
+                <filteritem type="filepath" name="hispark_taurus/linux/system_hap/Mms.hap" desc="hap not identif"/>
+                <filteritem type="filepath" name="hispark_taurus/linux/system_hap/Contacts.hap" desc="hap not identif"/>
+            </filefilter>
 
 		</filefilterlist>
 
