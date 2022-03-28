@@ -10,6 +10,6 @@ group("hi3516dv300_group") {
     "system:sys_files",
     "system/cfg:init_configs",
     "//device/soc/hisilicon/hi3516dv300/sdk_linux:hispark_taurus_sdk",
-	"system_hap:hap"
+    "system_hap:hap"
   ]
 }
