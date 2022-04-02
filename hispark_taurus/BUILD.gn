@@ -4,9 +4,14 @@ if (defined(ohos_lite)) {
   group("hispark_taurus") {
     deps = []
     if (ohos_kernel_type == "linux") {
-      deps += [ "//device/soc/hisilicon/hi3516dv300/sdk_linux:hispark_taurus_sdk" ]
+      deps += [
+        "//device/soc/hisilicon/common/platform/wifi/hi3881v100/firmware:wifi_firmware",
+        "//device/soc/hisilicon/hi3516dv300/sdk_linux:hispark_taurus_sdk",
+      ]
     } else if (ohos_kernel_type == "liteos_a") {
-      deps += [ "//device/soc/hisilicon/hi3516dv300/sdk_liteos/mpp:copy_mpp_libs" ]
+      deps += [ 
+        "//device/soc/hisilicon/hi3516dv300/sdk_liteos/mpp:copy_mpp_libs",
+      ]
     }
   }
 } else {
@@ -14,8 +19,8 @@ if (defined(ohos_lite)) {
     deps = [ "linux:hi3516dv300_group" ]
 
     deps += [
-        "//device/soc/hisilicon/common/hal/media:hardware_group",
-        "//device/soc/hisilicon/common/hal/middleware:middleware_group",
+      "//device/soc/hisilicon/common/hal/media:hardware_group",
+      "//device/soc/hisilicon/common/hal/middleware:middleware_group",
     ]
   }
 }
