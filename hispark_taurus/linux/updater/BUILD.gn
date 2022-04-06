@@ -35,12 +35,10 @@ if (enable_ramdisk) {
 
 group("updater_files") {
   deps = [
-    ":signing_cert.crt",
     ":fstab.updater",
+    ":signing_cert.crt",
   ]
   if (enable_ramdisk) {
-    deps += [
-      ":ohos_updater.its",
-    ]
+    deps += [ ":ohos_updater.its" ]
   }
 }
