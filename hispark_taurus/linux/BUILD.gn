@@ -8,8 +8,8 @@ group("hi3516dv300_group") {
     "distributedhardware:distributedhardware",
     "images:all_image_conf",
     "system:sys_files",
-    "updater:updater_files",
     "system/cfg:init_configs",
+    "updater:updater_files",
     "//device/soc/hisilicon/hi3516dv300/sdk_linux:hispark_taurus_sdk",
   ]
 }
