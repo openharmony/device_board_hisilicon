@@ -19,7 +19,8 @@
     description = "U-Boot uImage source file for Hi3516DV300";
     #address-cells = <1>;
 
-	ramdisk@1 {
+    images {
+	    ramdisk@1 {
             description = "ohos updater Ramdisk Image";
             data = /incbin/("./updater_ramdisk.img");
             type = "ramdisk";
