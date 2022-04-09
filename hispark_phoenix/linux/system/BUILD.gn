@@ -4,15 +4,16 @@ import("//build/ohos.gni")
 
 group("system_files") {
   deps = [
-    ":partion_xml",
-    ":ohos_drv_mgr.cfg",
     ":init.Hi3751V350.cfg",
+    ":ohos_drv_mgr.cfg",
+    ":partion_xml",
   ]
 }
 
 ohos_copy("partion_xml") {
   sources = [ "Hi3751V350-slaveboot-emmc.xml" ]
-  outputs = [ "$root_build_dir/packages/phone/images/Hi3751V350-slaveboot-emmc.xml" ]
+  outputs =
+      [ "$root_build_dir/packages/phone/images/Hi3751V350-slaveboot-emmc.xml" ]
 }
 
 ohos_prebuilt_etc("ohos_drv_mgr.cfg") {
