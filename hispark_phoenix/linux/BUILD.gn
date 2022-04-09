@@ -9,9 +9,7 @@ group("hispark_phoenix") {
     "//device/soc/hisilicon/hi3751v350/sdk_linux:hispark_phoenix_sdk",
   ]
 
-  if(enable_ramdisk) {
-    deps += [
-      "updater:updater_cfgs",
-    ]
+  if (enable_ramdisk) {
+    deps += [ "updater:updater_cfgs" ]
   }
 }
