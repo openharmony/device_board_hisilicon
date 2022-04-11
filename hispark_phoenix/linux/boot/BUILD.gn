@@ -1,0 +1,50 @@
+# Copyright (C) 2022 Hisilicon (Shanghai) Technologies Co., Ltd. All rights reserved.
+
+import("//build/ohos.gni")
+
+group("boot_prebuilts") {
+  deps = [
+    ":atf.bin",
+    ":bootargs.bin",
+    ":dtbo.img",
+    ":fastboot.bin",
+    ":logo.img",
+    ":panel.img",
+    ":slaveboot.bin",
+  ]
+}
+
+ohos_copy("atf.bin") {
+  sources = [ "atf.bin" ]
+  outputs = [ "$root_build_dir/packages/phone/images/atf.bin" ]
+}
+
+ohos_copy("bootargs.bin") {
+  sources = [ "bootargs.bin" ]
+  outputs = [ "$root_build_dir/packages/phone/images/bootargs.bin" ]
+}
+
+ohos_copy("dtbo.img") {
+  sources = [ "dtbo.img" ]
+  outputs = [ "$root_build_dir/packages/phone/images/dtbo.img" ]
+}
+
+ohos_copy("fastboot.bin") {
+  sources = [ "fastboot.bin" ]
+  outputs = [ "$root_build_dir/packages/phone/images/fastboot.bin" ]
+}
+
+ohos_copy("logo.img") {
+  sources = [ "logo.img" ]
+  outputs = [ "$root_build_dir/packages/phone/images/logo.img" ]
+}
+
+ohos_copy("panel.img") {
+  sources = [ "panel.img" ]
+  outputs = [ "$root_build_dir/packages/phone/images/panel.img" ]
+}
+
+ohos_copy("slaveboot.bin") {
+  sources = [ "slaveboot.bin" ]
+  outputs = [ "$root_build_dir/packages/phone/images/slaveboot.bin" ]
+}
