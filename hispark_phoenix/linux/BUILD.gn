@@ -6,6 +6,7 @@ group("hispark_phoenix") {
   deps = [
     "boot:boot_prebuilts",
     "system:system_files",
+    "//device/soc/hisilicon/hi3751v350/gpu:gpu_libs",
     "//device/soc/hisilicon/hi3751v350/sdk_linux:hispark_phoenix_sdk",
   ]
 
