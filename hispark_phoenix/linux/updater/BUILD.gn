@@ -7,12 +7,20 @@ group("updater_cfgs") {
     ":fstab",
     ":fstab.Hi3751V350",
     ":ohos.its",
+    ":ohos_updater.its",
   ]
 }
 
 ohos_copy("fstab") {
   sources = [ "cfg/fstab.Hi3751V350" ]
   outputs = [ "$root_build_dir/fstab.required" ]
+}
+
+if (enable_ramdisk) {
+  ohos_copy("ohos_updater.its") {
+    sources = [ "ohos_updater.its" ]
+    outputs = [ "$root_build_dir/ohos_updater.its" ]
+  }
 }
 
 ohos_copy("ohos.its") {
