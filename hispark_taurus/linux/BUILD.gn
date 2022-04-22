@@ -7,6 +7,7 @@ group("hi3516dv300_group") {
   deps = [
     "distributedhardware:distributedhardware",
     "images:all_image_conf",
+    "images:ramdisk_resource_config.ini",
     "system:sys_files",
     "system/cfg:init_configs",
     "updater:updater_files",
