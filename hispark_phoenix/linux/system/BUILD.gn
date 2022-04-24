@@ -7,6 +7,7 @@ group("system_files") {
     ":init.Hi3751V350.cfg",
     ":ohos_drv_mgr.cfg",
     ":partion_xml",
+    ":ramdisk_resource_config.ini",
   ]
 }
 
@@ -14,6 +15,11 @@ ohos_copy("partion_xml") {
   sources = [ "Hi3751V350-slaveboot-emmc.xml" ]
   outputs =
       [ "$root_build_dir/packages/phone/images/Hi3751V350-slaveboot-emmc.xml" ]
+}
+
+ohos_copy("ramdisk_resource_config.ini") {
+  sources = [ "//device/board/hisilicon/hispark_taurus/linux/images/ramdisk_resource_config.ini" ]
+  outputs = [ "$product_output_dir/phone/ramdisk_resource_config.ini" ]
 }
 
 ohos_prebuilt_etc("ohos_drv_mgr.cfg") {
