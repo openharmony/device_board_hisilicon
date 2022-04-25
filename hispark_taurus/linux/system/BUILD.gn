@@ -45,7 +45,7 @@ ohos_copy("Hi3516DV300-emmc.xml") {
   if (!enable_ramdisk) {
     sources = [ "Hi3516DV300-emmc-uImage.xml" ]
   } else {
-    sources = [ "Hi3516DV300-emmc-bootImage.xml" ]
+    sources = [ "Hi3516DV300-emmc-ramdiskImage.xml" ]
   }
   outputs = [ "$root_build_dir/packages/phone/images/Hi3516DV300-emmc.xml" ]
 }
