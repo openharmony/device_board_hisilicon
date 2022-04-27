@@ -1,4 +1,4 @@
 /
-524288000
+629145600
 --fs_type=ext4
 --dac_config ../../build/ohos/images/mkimage/dac.txt
