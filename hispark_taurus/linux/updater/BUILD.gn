@@ -33,7 +33,8 @@ if (enable_ramdisk) {
   }
   ohos_copy("updater_ramdisk_resource_config.ini") {
     sources = [ "updater_ramdisk_resource_config.ini" ]
-    outputs = [ "$root_build_dir/../../build/ohos/images/mkimage/updater_ramdisk_resource_config.ini" ]
+    outputs =
+        [ "$product_output_dir/phone/updater_ramdisk_resource_config.ini" ]
   }
 }
 
