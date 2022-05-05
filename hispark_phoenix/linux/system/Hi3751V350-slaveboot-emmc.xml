@@ -9,7 +9,7 @@
 <Part Sel="1" PartitionName="deviceinfo" FlashType="emmc" FileSystem="none" Start="53M" Length="2M" SelectFile=""/>
 <Part Sel="1" PartitionName="logo" FlashType="emmc" FileSystem="none" Start="55M" Length="40M" SelectFile="logo.img"/>
 <Part Sel="1" PartitionName="boot" FlashType="emmc" FileSystem="none" Start="95M" Length="30M" SelectFile="uImage"/>
-<Part Sel="1" PartitionName="ramdisk" FlashType="emmc" FileSystem="none" Start="125M" Length="10M" SelectFile="./../../../ramdisk.img"/>
+<Part Sel="1" PartitionName="ramdisk" FlashType="emmc" FileSystem="none" Start="125M" Length="10M" SelectFile="ramdisk.img"/>
 <Part Sel="1" PartitionName="dtbo" FlashType="emmc" FileSystem="none" Start="135M" Length="1M" SelectFile="dtbo.img"/>
 <Part Sel="1" PartitionName="atf" FlashType="emmc" FileSystem="none" Start="136M" Length="2M" SelectFile="atf.bin"/>
 <Part Sel="0" PartitionName="trustedcore" FlashType="emmc" FileSystem="none" Start="138M" Length="8M" SelectFile=""/>
