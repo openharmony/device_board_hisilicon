@@ -15,19 +15,3 @@ soc_company = "hisilicon"
 soc_name = "hi3751v350"
 
 import("//device/soc/${soc_company}/${soc_name}/soc.gni")
-
-if (!defined(defines)) {
-  defines = []
-}
-product_config_path = "//vendor/hisilicon/Hi3516DV300"
-board_camera_path = "//device/board/hisilicon/hispark_taurus/camera"
-is_support_mpi = true
-if (is_support_mpi) {
-  is_support_v4l2 = false
-  defines += [ "SUPPORT_MPI" ]
-  chipset_build_deps = "$board_camera_path:hispark_taurus_build"
-  camera_device_manager_deps =
-      "$board_camera_path/device_manager:camera_device_manager"
-  camera_pipeline_core_deps =
-      "$board_camera_path/pipeline_core:camera_pipeline_core"
-}
