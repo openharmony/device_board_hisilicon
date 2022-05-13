@@ -19,7 +19,11 @@ import("//device/soc/${soc_company}/${soc_name}/soc.gni")
 if (!defined(defines)) {
   defines = []
 }
-product_config_path = "//vendor/hisilicon/Hi3516DV300"
+if (product_name == "ipcamera_hispark_taurus") {
+  product_config_path = "//vendor/hisilicon/hispark_taurus_standard"
+} else {
+  product_config_path = "//vendor/hisilicon/${product_name}"
+}
 board_camera_path = "//device/board/hisilicon/hispark_taurus/camera"
 is_support_mpi = true
 if (is_support_mpi) {
