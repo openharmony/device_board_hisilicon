@@ -1,0 +1,2 @@
+          FW          	CUT	SVN	Coex
+rtl8723d_fw           	 C	21678	2f2f
