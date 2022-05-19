@@ -762,7 +762,7 @@ free_buf:
 
 static int usb_hci_download_patch_h4(HC_BT_HDR *p_buf, int index, uint8_t *data, int len)
 {
-    uint8_t retval = FALSE;
+    int retval = FALSE;
     uint8_t *p = (uint8_t *)(p_buf + 1);
 
     UINT16_TO_STREAM(p, HCI_VSC_DOWNLOAD_FW_PATCH);
@@ -806,7 +806,7 @@ void hw_usb_config_cback(void *p_mem)
     uint8_t status = 0;
     uint16_t opcode = 0;
     HC_BT_HDR *p_buf = NULL;
-    uint8_t is_proceeding = FALSE;
+    int is_proceeding = FALSE;
     // int         i = 0;
     uint8_t iIndexRx = 0;
     // patch_info* prtk_patch_file_info = NULL;
