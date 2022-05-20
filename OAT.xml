@@ -56,7 +56,7 @@ Note:If the text contains special characters, please escape them according to th
 -->
 <configuration>
     <oatconfig>
-		<licensefile>hispark_taurus/linux/LICENSE|hispark_taurus/liteos_a/board/LICENSE|hispark_taurus/uboot/reg/LICENSE|hispark_aries/uboot/reg/LICENSE|</licensefile>
+		<licensefile>hispark_taurus/linux/LICENSE|hispark_taurus/liteos_a/board/LICENSE|hispark_taurus/uboot/reg/LICENSE|hispark_aries/uboot/reg/LICENSE|hispark_taurus/audio_drivers/LICENSE|</licensefile>
         <policylist>
             <policy name="projectPolicy" desc="">
 				<policyitem type="copyright" name="Copyright (c) 2020 HiSilicon (Shanghai) Technologies CO., LIMITED." path=".*" desc="HiSilicon copyright"/>
@@ -68,6 +68,8 @@ Note:If the text contains special characters, please escape them according to th
 				<policyitem type="copyright" name="Huawei Technologies Co., Ltd. All rights reserved." path=".*" desc="original huawei copyright"/>
 				<policyitem type="copyright" name="Copyright (C) 2009-2018 Realtek Corporation" path=".*" desc="Realtek copyright"/>
 				<policyitem type="copyright" name="Copyright 2009-2012 Broadcom Corporation" path=".*" desc="Realtek copyright"/>
+				<policyitem type="copyright" name="Copyright (c) 2022 Huawei Device Co., Ltd." path=".*" desc="original huawei copyright"/>
+				<policyitem type="license" name="GPL-2.0" path=".*" desc="Kernel space code"/>
 			</policy>
         </policylist>
 		<filefilterlist>
