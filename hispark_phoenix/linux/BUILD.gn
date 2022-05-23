@@ -1,0 +1,15 @@
+# Copyright (C) 2022 Hisilicon (Shanghai) Technologies Co., Ltd. All rights reserved.
+
+import("//build/ohos.gni")
+
+group("hispark_phoenix") {
+  deps = [
+    "boot:boot_prebuilts",
+    "system:system_files",
+    "//device/soc/hisilicon/hi3751v350/sdk_linux:hispark_phoenix_sdk",
+  ]
+
+  if (enable_ramdisk) {
+    deps += [ "updater:updater_cfgs" ]
+  }
+}
