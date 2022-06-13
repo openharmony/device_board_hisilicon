@@ -39,6 +39,7 @@ static struct device g_renderDev = {0};
 static struct device g_captureDev = {0};
 #endif
 
+#ifdef AUDIO_ENABLE_CAP_THRESHOLD
 static uint32_t DmacIsrCallBack(int irq, void *data)
 {
     uint32_t chanlID = 0;
@@ -63,6 +64,7 @@ static uint32_t DmacIsrCallBack(int irq, void *data)
 
     return HDF_SUCCESS;
 }
+#endif
 
 int32_t AudioDmaDeviceInit(const struct AudioCard *card, const struct PlatformDevice *platformDevice)
 {
@@ -74,6 +76,7 @@ int32_t AudioDmaDeviceInit(const struct AudioCard *card, const struct PlatformDe
         return HDF_FAILURE;
     }
 
+#ifdef AUDIO_ENABLE_CAP_THRESHOLD
     if (!strcmp(card->configData.cardServiceName, "hdf_audio_codec_primary_dev0")) {
         ret = OsalRegisterIrq(DMA_VIRTUAL_IRQ_NUM, IRQF_SHARED,
                               (OsalIRQHandle)DmacIsrCallBack, "AIO_interrupt", card->device);
@@ -81,31 +84,36 @@ int32_t AudioDmaDeviceInit(const struct AudioCard *card, const struct PlatformDe
             AUDIO_DRIVER_LOG_ERR("OsalRegisterIrq: fail 0x%x", ret);
         }
     }
+#endif
 
     if (platformDevice->devData->platformInitFlag == true) {
         AUDIO_DRIVER_LOG_DEBUG("platform init complete!");
         return HDF_SUCCESS;
     }
 
-    if (AiaoHalSysInit() != HDF_SUCCESS) {
+    ret = AiaoHalSysInit();
+    if (ret != HDF_SUCCESS) {
         AUDIO_DRIVER_LOG_ERR("AiaoHalSysInit:  fail.");
         return HDF_FAILURE;
     }
 
     /* PIN MUX */
-    if (AiaoSysPinMux() != HDF_SUCCESS) {
+    ret = AiaoSysPinMux();
+    if (ret != HDF_SUCCESS) {
         AUDIO_DRIVER_LOG_ERR("AiaoSysPinMux: fail.");
         return HDF_FAILURE;
     }
 
     /* CLK reset */
-    if (AiaoClockReset() != HDF_SUCCESS) {
+    ret = AiaoClockReset();
+    if (ret != HDF_SUCCESS) {
         AUDIO_DRIVER_LOG_ERR("AiaoClockReset: fail");
         return HDF_FAILURE;
     }
 
     /* aiao init */
-    if (AiaoDeviceInit(chnId) != HDF_SUCCESS) {
+    ret = AiaoDeviceInit(chnId);
+    if (ret != HDF_SUCCESS) {
         AUDIO_DRIVER_LOG_ERR("AiaoClockReset:  fail");
         return HDF_FAILURE;
     }

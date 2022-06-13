@@ -122,7 +122,7 @@ int32_t Hi3516DaiDeviceInit(struct AudioCard *audioCard, const struct DaiDevice 
 
     data->regVirtualAddr = (uintptr_t)g_regCodecBase;
 
-    if (DaiSetConfigInfo(data) != HDF_SUCCESS) {
+    if (DaiSetConfigInfoOfControls(data) != HDF_SUCCESS) {
         AUDIO_DRIVER_LOG_ERR("set config info fail.");
         return HDF_FAILURE;
     }
