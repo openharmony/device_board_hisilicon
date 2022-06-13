@@ -64,7 +64,7 @@ static int32_t Tfa9879DriverInit(struct HdfDeviceObject *device)
         return ret;
     }
 
-    if (CodecSetConfigInfo(&g_tfa9879Data, &g_tfa9879DaiData) != HDF_SUCCESS) {
+    if (CodecSetConfigInfoOfControls(&g_tfa9879Data, &g_tfa9879DaiData) != HDF_SUCCESS) {
         AUDIO_DRIVER_LOG_ERR("set config info failed.");
         return HDF_FAILURE;
     }

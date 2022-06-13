@@ -35,6 +35,10 @@
 #define TFA9879_I2C_REG_DATA_LEN    (2)    // default is 2 byte (16bits)
 #define COMM_WAIT_TIMES      (10) // ms
 
+#define FREQUENCY_REG_INDEX 0
+#define FORMAT_REG_INDEX 1
+#define CHANNEL_REG_INDEX 2
+
 struct I2cTransferParam g_transferParam;
 
 // Init Function
@@ -90,68 +94,6 @@ static int32_t Tfa9879FormatParse(enum AudioFormat format, uint16_t *bitWidth)
     return HDF_SUCCESS;
 }
 
-static int32_t Tfa9879WorkStatusEnable(const struct DaiDevice *device, struct AudioRegCfgGroupNode **regCfgGroup)
-{
-    int ret;
-    uint8_t i;
-    struct AudioMixerControl *daiStartupParamsRegCfgItem = NULL;
-    uint8_t daiStartupParamsRegCfgItemCount;
-
-    ret = (regCfgGroup == NULL || regCfgGroup[AUDIO_DAI_STARTUP_PATAM_GROUP] == NULL
-        || regCfgGroup[AUDIO_DAI_STARTUP_PATAM_GROUP]->regCfgItem == NULL);
-    if (ret) {
-        AUDIO_DEVICE_LOG_ERR("g_audioRegCfgGroupNode[AUDIO_DAI_STARTUP_PATAM_GROUP] is NULL.");
-        return HDF_FAILURE;
-    }
-    daiStartupParamsRegCfgItem = regCfgGroup[AUDIO_DAI_STARTUP_PATAM_GROUP]->regCfgItem;
-    daiStartupParamsRegCfgItemCount = regCfgGroup[AUDIO_DAI_STARTUP_PATAM_GROUP]->itemNum;
-
-    for (i = 0; i < daiStartupParamsRegCfgItemCount; i++) {
-        ret = AudioDaiRegUpdate(device, &daiStartupParamsRegCfgItem[i]);
-        if (ret != HDF_SUCCESS) {
-            AUDIO_DEVICE_LOG_ERR("CodecDaiRegBitsUpdate fail.");
-            return HDF_FAILURE;
-        }
-    }
-    AUDIO_DEVICE_LOG_DEBUG("success.");
-    return HDF_SUCCESS;
-}
-
-// init control reg to default value
-static int32_t Tfa9879DeviceCtrlRegInit(const struct CodecDevice *device, struct AudioRegCfgGroupNode **regCfgGroup)
-{
-    int32_t ret;
-    int32_t i;
-    struct AudioAddrConfig *initCfg = NULL;
-
-    // Set codec control register(00h-14h) default value
-    ret = (device == NULL || device->devData == NULL || device->devData->Write == NULL || regCfgGroup == NULL ||
-           regCfgGroup[AUDIO_INIT_GROUP] == NULL || regCfgGroup[AUDIO_INIT_GROUP]->addrCfgItem == NULL);
-    if (ret) {
-        AUDIO_DRIVER_LOG_ERR("regCfgGroup[AUDIO_INIT_GROUP] is NULL.");
-        return HDF_FAILURE;
-    }
-
-    initCfg = regCfgGroup[AUDIO_INIT_GROUP]->addrCfgItem;
-    if (initCfg == NULL) {
-        AUDIO_DRIVER_LOG_ERR("initCfg is NULL.");
-        return HDF_FAILURE;
-    }
-
-    for (i = 0; i < regCfgGroup[AUDIO_INIT_GROUP]->itemNum; i++) {
-        AUDIO_DRIVER_LOG_DEBUG("i=%d, Addr = [0x%2x]", i, initCfg[i].addr);
-        ret = device->devData->Write(device, initCfg[i].addr, initCfg[i].value);
-        if (ret != HDF_SUCCESS) {
-            AUDIO_DRIVER_LOG_ERR("CodecI2cTransfer(write) err, regAttr.regAddr: 0x%x.\n",
-                                 initCfg[i].addr);
-            return HDF_FAILURE;
-        }
-        OsalMSleep(COMM_WAIT_TIMES);
-    }
-    AUDIO_DRIVER_LOG_DEBUG("success.");
-    return HDF_SUCCESS;
-}
-
 int32_t Tfa9879DeviceInit(struct AudioCard *audioCard, const struct CodecDevice *device)
 {
     int32_t ret;
@@ -172,9 +114,9 @@ int32_t Tfa9879DeviceInit(struct AudioCard *audioCard, const struct CodecDevice 
     device->devData->privateParam = &g_transferParam;
 
     // Initial tfa9879 register
-    ret = Tfa9879DeviceCtrlRegInit(device, device->devData->regCfgGroup);
+    ret = CodecDeviceInitRegConfig(device);
     if (ret != HDF_SUCCESS) {
-        AUDIO_DEVICE_LOG_ERR("Tfa9879DeviceCtrlRegInit failed.");
+        AUDIO_DEVICE_LOG_ERR("CodecDeviceInitRegConfig failed.");
         return HDF_FAILURE;
     }
 
@@ -207,19 +149,14 @@ int32_t Tfa9879DaiDeviceInit(struct AudioCard *card, const struct DaiDevice *dev
 int32_t Tfa9879DaiStartup(const struct AudioCard *card, const struct DaiDevice *device)
 {
     int ret;
-
-    if (device == NULL || device->devData == NULL ||
-        device->devData->regCfgGroup == NULL) {
-        AUDIO_DRIVER_LOG_ERR("input para is NULL.");
-        return HDF_FAILURE;
-    }
     (void)card;
 
-    ret = Tfa9879WorkStatusEnable(device, device->devData->regCfgGroup);
+    ret = CodecDaiDeviceStartupRegConfig(device);
     if (ret != HDF_SUCCESS) {
-        AUDIO_DEVICE_LOG_ERR("Tfa9879WorkStatusEnable failed.");
+        AUDIO_DEVICE_LOG_ERR("CodecDaiDeviceStartupRegConfig failed.");
         return HDF_FAILURE;
     }
+
     AUDIO_DEVICE_LOG_DEBUG("success.");
     return HDF_SUCCESS;
 }
@@ -279,7 +216,6 @@ int32_t Tfa9879FrequencyParse(uint32_t rate, uint16_t *freq)
 int32_t Tfa9879DaiParamsUpdate(struct DaiDevice *codecDai, struct DaiParamsVal daiParamsVal)
 {
     int32_t ret;
-    const int itemNum = 3; // current only 3 items(frequency, format, channel)
     struct AudioMixerControl *regAttr = NULL;
     struct AudioRegCfgGroupNode **regCfgGroup = NULL;
     if (codecDai == NULL || codecDai->devData == NULL) {
@@ -287,30 +223,29 @@ int32_t Tfa9879DaiParamsUpdate(struct DaiDevice *codecDai, struct DaiParamsVal d
         return HDF_ERR_INVALID_PARAM;
     }
     regCfgGroup = codecDai->devData->regCfgGroup;
-    ret = (regCfgGroup == NULL || regCfgGroup[AUDIO_DAI_PATAM_GROUP] == NULL
-           || regCfgGroup[AUDIO_DAI_PATAM_GROUP]->regCfgItem == NULL
-           || regCfgGroup[AUDIO_DAI_PATAM_GROUP]->itemNum < itemNum);
-    if (ret) {
+
+    if (regCfgGroup == NULL || regCfgGroup[AUDIO_DAI_PATAM_GROUP] == NULL ||
+        regCfgGroup[AUDIO_DAI_PATAM_GROUP]->regCfgItem == NULL) {
         AUDIO_DRIVER_LOG_ERR("g_audioRegCfgGroupNode[AUDIO_DAI_PATAM_GROUP] is NULL.");
         return HDF_FAILURE;
     }
     regAttr = regCfgGroup[AUDIO_DAI_PATAM_GROUP]->regCfgItem;
-    regAttr[0].value = daiParamsVal.frequencyVal;
+    regAttr[FREQUENCY_REG_INDEX].value = daiParamsVal.frequencyVal;
 
-    ret = AudioDaiRegUpdate(codecDai, &regAttr[0]);
+    ret = AudioDaiRegUpdate(codecDai, &regAttr[FREQUENCY_REG_INDEX]);
     if (ret != HDF_SUCCESS) {
         AUDIO_DRIVER_LOG_ERR("set freq failed.");
         return HDF_FAILURE;
     }
 
-    regAttr[1].value = daiParamsVal.formatVal;
-    ret = AudioDaiRegUpdate(codecDai, &regAttr[1]);
+    regAttr[FORMAT_REG_INDEX].value = daiParamsVal.formatVal;
+    ret = AudioDaiRegUpdate(codecDai, &regAttr[FORMAT_REG_INDEX]);
     if (ret != HDF_SUCCESS) {
         AUDIO_DRIVER_LOG_ERR("set format failed.");
         return HDF_FAILURE;
     }
-    regAttr[itemNum - 1].value = daiParamsVal.channelVal;
-    ret = AudioDaiRegUpdate(codecDai, &regAttr[itemNum - 1]);
+    regAttr[CHANNEL_REG_INDEX].value = daiParamsVal.channelVal;
+    ret = AudioDaiRegUpdate(codecDai, &regAttr[CHANNEL_REG_INDEX]);
     if (ret != HDF_SUCCESS) {
         AUDIO_DRIVER_LOG_ERR("set channel failed.");
         return HDF_FAILURE;
