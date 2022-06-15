@@ -9,9 +9,8 @@ if (defined(ohos_lite)) {
         "//device/soc/hisilicon/hi3516dv300/sdk_linux:hispark_taurus_sdk",
       ]
     } else if (ohos_kernel_type == "liteos_a") {
-      deps += [ 
-        "//device/soc/hisilicon/hi3516dv300/sdk_liteos/mpp:copy_mpp_libs",
-      ]
+      deps +=
+          [ "//device/soc/hisilicon/hi3516dv300/sdk_liteos/mpp:copy_mpp_libs" ]
     }
   }
 } else {
