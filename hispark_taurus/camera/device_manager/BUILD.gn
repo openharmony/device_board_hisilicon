@@ -32,7 +32,7 @@ config("device_manager_config") {
 
 if (defined(ohos_lite)) {
   import("//build/ohos.gni")
-  import("//drivers/adapter/uhdf/uhdf.gni")
+  import("//drivers/hdf_core/adapter/uhdf/uhdf.gni")
 
   ohos_shared_library("camera_device_manager") {
     sources = [
@@ -63,8 +63,8 @@ if (defined(ohos_lite)) {
       "$board_camera_path/device_manager/include",
       "$camera_path/adapter/platform/mpp/src/device_manager/include",
       "//drivers/peripheral/camera/interfaces/metadata/include",
-      "//drivers/framework/include/utils",
-      "//drivers/adapter/uhdf2/osal/include",
+      "//drivers/hdf_core/framework/include/utils",
+      "//drivers/hdf_core/adapter/uhdf2/osal/include",
       "$board_camera_path/driver_adapter/include",
       "//base/hiviewdfx/hilog_lite/interfaces/native/innerkits",
     ]
@@ -83,7 +83,7 @@ if (defined(ohos_lite)) {
   }
 } else {
   import("//build/ohos.gni")
-  import("//drivers/adapter/uhdf2/uhdf.gni")
+  import("//drivers/hdf_core/adapter/uhdf2/uhdf.gni")
 
   ohos_shared_library("camera_device_manager") {
     sources = [
@@ -124,7 +124,7 @@ if (defined(ohos_lite)) {
 
     if (is_standard_system) {
       external_deps = [
-        "device_driver_framework:libhdf_utils",
+        "hdf_core:libhdf_utils",
         "hiviewdfx_hilog_native:libhilog",
         "utils_base:utils",
       ]
