@@ -15,7 +15,7 @@ if (defined(ohos_lite)) {
     source = "../libs/linux/libdriver_adapter.z.so"
     module_install_dir = "lib/"
     install_images = [ chipset_base_dir ]
-    part_name = "driver_peripheral_camera"
+    part_name = "drivers_peripheral_camera"
     subsystem_name = "hdf"
   }
 }
