@@ -50,7 +50,7 @@ if (defined(ohos_lite)) {
     relative_install_dir = "hdfconfig"
     install_images = [ chipset_base_dir ]
     subsystem_name = "hdf"
-    part_name = "driver_peripheral_camera"
+    part_name = "drivers_peripheral_camera"
   }
 
   hc_gen_c("generate_source") {
@@ -112,7 +112,7 @@ if (defined(ohos_lite)) {
     relative_install_dir = "hdfconfig"
     install_images = [ chipset_base_dir ]
     subsystem_name = "hdf"
-    part_name = "driver_peripheral_camera"
+    part_name = "drivers_peripheral_camera"
   }
 
   hc_gen("build_mpp_config_hcs") {
@@ -128,7 +128,7 @@ if (defined(ohos_lite)) {
     relative_install_dir = "hdfconfig"
     install_images = [ chipset_base_dir ]
     subsystem_name = "hdf"
-    part_name = "driver_peripheral_camera"
+    part_name = "drivers_peripheral_camera"
   }
 
   group("hispark_taurus_build") {
