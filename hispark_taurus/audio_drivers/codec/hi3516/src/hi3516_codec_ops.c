@@ -26,14 +26,16 @@
 #define HDF_LOG_TAG HDF_AUDIO_DRIVER
 
 static const struct AudioSapmRoute g_audioRoutes[] = {
-    { "SPKL", "Dacl enable", "DACL"},
-    { "SPKR", "Dacr enable", "DACR"},
+    { "SPKL", NULL, "SPKL PGA"},
+    { "SPKR", NULL, "SPKR PGA"},
+    { "SPKL PGA", "Dacl enable", "DACL"},
+    { "SPKR PGA", "Dacr enable", "DACR"},
 
     { "ADCL", NULL, "LPGA"},
-    { "LPGA", "LPGA MIC Switch", "MIC"},
+    { "LPGA", "LPGA MIC Switch", "MIC1"},
 
     { "ADCR", NULL, "RPGA"},
-    { "RPGA", "RPGA MIC Switch", "MIC"},
+    { "RPGA", "RPGA MIC Switch", "MIC2"},
 };
 
 int32_t Hi3516CodecDeviceInit(struct AudioCard *audioCard, const struct CodecDevice *codec)
@@ -44,7 +46,8 @@ int32_t Hi3516CodecDeviceInit(struct AudioCard *audioCard, const struct CodecDev
         return HDF_ERR_INVALID_OBJECT;
     }
 
-    if (CodecSetCtlFunc(codec->devData, Hi3516CodecAiaoGetCtrlOps, Hi3516CodecAiaoSetCtrlOps) != HDF_SUCCESS) {
+    if (CodecSetCtlFunc(codec->devData, AUDIO_CONTROL_MIXER, Hi3516CodecAiaoGetCtrlOps,
+        Hi3516CodecAiaoSetCtrlOps) != HDF_SUCCESS) {
         AUDIO_DRIVER_LOG_ERR("AudioCodecSetCtlFunc failed.");
         return HDF_FAILURE;
     }
@@ -119,6 +122,7 @@ int32_t Hi3516CodecDaiHwParams(const struct AudioCard *card, const struct AudioP
         return HDF_FAILURE;
     }
 
+    AUDIO_DRIVER_LOG_DEBUG("channels count : %d .", param->channels);
     (void)memset_s(&codecDaiParamsVal, sizeof(struct CodecDaiParamsVal), 0, sizeof(struct CodecDaiParamsVal));
     codecDaiParamsVal.frequencyVal = param->rate;
     codecDaiParamsVal.formatVal = bitWidth;
