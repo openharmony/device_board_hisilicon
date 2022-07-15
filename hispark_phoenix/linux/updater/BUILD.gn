@@ -3,35 +3,10 @@
 import("//build/ohos.gni")
 
 group("updater_cfgs") {
-  deps = [
-    ":fstab",
-    ":fstab.Hi3751V350",
-    ":ohos.its",
-    ":ohos_updater.its",
-    ":updater_ramdisk_resource_config.ini",
-  ]
-}
-
-ohos_copy("fstab") {
-  sources = [ "cfg/fstab.Hi3751V350" ]
-  outputs = [ "$root_build_dir/fstab.required" ]
-}
-
-if (enable_ramdisk) {
-  ohos_copy("ohos_updater.its") {
-    sources = [ "ohos_updater.its" ]
-    outputs = [ "$root_build_dir/ohos_updater.its" ]
+  deps = [ ":fstab.Hi3751V350" ]
+  if (enable_ramdisk) {
+    deps += [ ":fstab" ]
   }
-  ohos_copy("updater_ramdisk_resource_config.ini") {
-    sources = [ "updater_ramdisk_resource_config.ini" ]
-    outputs =
-        [ "$product_output_dir/phone/updater_ramdisk_resource_config.ini" ]
-  }
-}
-
-ohos_copy("ohos.its") {
-  sources = [ "ohos.its" ]
-  outputs = [ "$root_build_dir/ohos.its" ]
 }
 
 ohos_prebuilt_etc("fstab.Hi3751V350") {

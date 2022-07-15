@@ -50,17 +50,6 @@ ohos_copy("Hi3516DV300-emmc.xml") {
   outputs = [ "$root_build_dir/packages/phone/images/Hi3516DV300-emmc.xml" ]
 }
 
-if (enable_ramdisk) {
-  ohos_copy("ohos.its") {
-    sources = [ "../updater/ohos.its" ]
-    outputs = [ "$root_build_dir/ohos.its" ]
-  }
-  ohos_copy("fstab.required") {
-    sources = [ "../updater/config/fstab.Hi3516DV300" ]
-    outputs = [ "$root_build_dir/fstab.required" ]
-  }
-}
-
 group("sys_files") {
   deps = [
     ":Hi3516DV300-emmc.xml",
@@ -69,10 +58,4 @@ group("sys_files") {
     ":u-boot-hi3516dv300_emmc.bin",
     ":vb_config_user.ini",
   ]
-  if (enable_ramdisk) {
-    deps += [
-      ":fstab.required",
-      ":ohos.its",
-    ]
-  }
 }
