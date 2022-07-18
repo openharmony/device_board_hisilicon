@@ -14,16 +14,9 @@ import("//build/ohos.gni")
 
 ohos_copy("all_image_conf") {
   sources = [
-    "ramdisk_resource_config.ini",
     "system_image_conf.txt",
-    "updater_ramdisk_resource_config.ini",
     "userdata_image_conf.txt",
     "vendor_image_conf.txt",
   ]
   outputs = [ "${product_output_dir}/imagesconf/{{source_file_part}}" ]
-}
-
-ohos_copy("ramdisk_resource_config.ini") {
-  sources = [ "ramdisk_resource_config.ini" ]
-  outputs = [ "$product_output_dir/phone/ramdisk_resource_config.ini" ]
 }
