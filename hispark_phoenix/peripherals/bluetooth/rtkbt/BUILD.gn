@@ -21,53 +21,10 @@ config("bt_warnings") {
 
 group("rtkbt_group") {
   deps = [
-    ":libbt_vendor",
     ":rtkbt.conf",
     ":rtl8723d_config",
     ":rtl8723d_fw",
   ]
-}
-
-ohos_shared_library("libbt_vendor") {
-  output_name = "libbt_vendor"
-  sources = [
-    "code/libbt-vendor/src/bt_list.c",
-    "code/libbt-vendor/src/bt_skbuff.c",
-    "code/libbt-vendor/src/bt_vendor_rtk.c",
-    "code/libbt-vendor/src/hardware.c",
-    "code/libbt-vendor/src/hardware_uart.c",
-    "code/libbt-vendor/src/hardware_usb.c",
-    "code/libbt-vendor/src/hci_h5.c",
-    "code/libbt-vendor/src/rtk_btservice.c",
-    "code/libbt-vendor/src/rtk_btsnoop_net.c",
-    "code/libbt-vendor/src/rtk_heartbeat.c",
-    "code/libbt-vendor/src/rtk_parse.c",
-    "code/libbt-vendor/src/rtk_poll.c",
-    "code/libbt-vendor/src/rtk_socket.c",
-    "code/libbt-vendor/src/upio.c",
-    "code/libbt-vendor/src/userial_vendor.c",
-  ]
-
-  include_dirs = [
-    "code/libbt-vendor/include",
-    "//base/hiviewdfx/hilog/interfaces/native/innerkits/include",
-    "//foundation/communication/bluetooth/services/bluetooth/hardware/include",
-    "//drivers/peripheral/bluetooth/hdi/ohos/hardware/bt/v1_0/server/implement",
-  ]
-
-  cflags = []
-
-  configs = [ ":bt_warnings" ]
-
-  deps = [ "//utils/native/base:utils" ]
-
-  external_deps = [ "hiviewdfx_hilog_native:libhilog" ]
-
-  install_enable = true
-  install_images = [ "system" ]
-  module_install_dir = "lib"
-
-  part_name = "hisilicon_products"
 }
 
 ohos_prebuilt_etc("rtl8723d_config") {
