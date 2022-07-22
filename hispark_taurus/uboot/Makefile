@@ -28,7 +28,7 @@ else
 export UBOOT_CONFIG:=$(CHIP)_smp_config
 endif
 
-NORMAL_UBOOT_DIR:=$(OSDRV_DIR)/../../../../../third_party/uboot
+NORMAL_UBOOT_DIR:=$(OSDRV_DIR)/../../../../../third_party/u-boot
 
 ##########################################################################################
 #	set task
