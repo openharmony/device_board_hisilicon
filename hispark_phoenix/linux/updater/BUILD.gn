@@ -4,9 +4,6 @@ import("//build/ohos.gni")
 
 group("updater_cfgs") {
   deps = [ ":fstab.Hi3751V350" ]
-  if (enable_ramdisk) {
-    deps += [ ":fstab" ]
-  }
 }
 
 ohos_prebuilt_etc("fstab.Hi3751V350") {
