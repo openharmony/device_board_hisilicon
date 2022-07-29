@@ -59,7 +59,7 @@ if (defined(ohos_lite)) {
       "$camera_path/lite_os/metadata/include",
       "$camera_path/utils/event",
       "$camera_path/device_manager/include",
-      "//utils/native/base/include",
+      "//commonlibrary/c_utils/base/include",
       "$board_camera_path/device_manager/include",
       "$camera_path/adapter/platform/mpp/src/device_manager/include",
       "//drivers/peripheral/camera/interfaces/metadata/include",
@@ -124,9 +124,9 @@ if (defined(ohos_lite)) {
 
     if (is_standard_system) {
       external_deps = [
+        "c_utils:utils",
         "hdf_core:libhdf_utils",
         "hiviewdfx_hilog_native:libhilog",
-        "utils_base:utils",
       ]
     } else {
       external_deps = [ "hilog:libhilog" ]
