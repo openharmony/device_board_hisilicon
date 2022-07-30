@@ -7,7 +7,6 @@ group("hispark_phoenix") {
     "boot:boot_prebuilts",
     "system:system_files",
     "//device/soc/hisilicon/hi3751v350/sdk_linux:hispark_phoenix_sdk",
-    "conf:image_conf",
   ]
 
   if (enable_ramdisk) {
