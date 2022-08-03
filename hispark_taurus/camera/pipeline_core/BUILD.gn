@@ -262,6 +262,7 @@ if (defined(ohos_lite)) {
     deps = [
       "$camera_path/buffer_manager:camera_buffer_manager",
       "$camera_path/device_manager:camera_device_manager",
+      "//drivers/interface/camera/v1_0:libcamera_proxy_1.0",
       "//drivers/peripheral/camera/interfaces/metadata:metadata",
     ]
 
