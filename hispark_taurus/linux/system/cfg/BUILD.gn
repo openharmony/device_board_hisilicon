@@ -38,10 +38,18 @@ ohos_prebuilt_etc("init.Hi3516DV300.updater.cfg") {
   part_name = "hisilicon_products"
 }
 
+ohos_prebuilt_etc("misc.cfg") {
+  source = "misc.cfg"
+  relative_install_dir = "init"
+  install_images = [ vendor_base_dir ]
+  part_name = "hisilicon_products"
+}
+
 group("init_configs") {
   deps = [
     ":init.Hi3516DV300.cfg",
     ":init.Hi3516DV300.updater.cfg",
     ":init.Hi3516DV300.usb.cfg",
+    ":misc.cfg",
   ]
 }
