@@ -8,6 +8,7 @@ group("hispark_phoenix") {
     "system:system_files",
     "//device/soc/hisilicon/hi3751v350/gpu:gpu_libs",
     "//device/soc/hisilicon/hi3751v350/sdk_linux:hispark_phoenix_sdk",
+    "//vendor/hisilicon/hispark_phoenix/preinstall-config:preinstall-config",
   ]
 
   if (enable_ramdisk) {
