@@ -16,21 +16,21 @@ import("//build/ohos.gni")
 ohos_prebuilt_etc("fstab.Hi3516DV300") {
   source = "../updater/config/fstab.Hi3516DV300"
   module_install_dir = "etc"
-  install_images = [ vendor_base_dir ]
+  install_images = [ chipset_base_dir ]
   part_name = "hisilicon_products"
 }
 
 ohos_prebuilt_etc("vb_config_user.ini") {
   source = "../updater/config/vb_config_user.ini"
   module_install_dir = "./"
-  install_images = [ vendor_base_dir ]
+  install_images = [ chipset_base_dir ]
   part_name = "hisilicon_products"
 }
 
 ohos_prebuilt_etc("logo.rgb") {
   source = "../updater/logo.rgb"
   module_install_dir = "./"
-  install_images = [ vendor_base_dir ]
+  install_images = [ chipset_base_dir ]
   part_name = "hisilicon_products"
 }
 
