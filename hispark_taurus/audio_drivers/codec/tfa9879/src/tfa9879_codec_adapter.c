@@ -58,6 +58,11 @@ static int32_t Tfa9879DriverInit(struct HdfDeviceObject *device)
         return HDF_ERR_INVALID_OBJECT;
     }
 
+    if (CodecDaiGetPortConfigInfo(device, &g_tfa9879DaiData) != HDF_SUCCESS) {
+        AUDIO_DRIVER_LOG_ERR("get port config info failed.");
+        return HDF_FAILURE;
+    }
+
     ret = CodecGetConfigInfo(device, &g_tfa9879Data);
     if (ret !=  HDF_SUCCESS) {
         AUDIO_DRIVER_LOG_ERR("get config info failed.");

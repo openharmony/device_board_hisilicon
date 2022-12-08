@@ -65,6 +65,10 @@ static int32_t CodecDriverInit(struct HdfDeviceObject *device)
         return HDF_ERR_INVALID_OBJECT;
     }
 
+    if (CodecDaiGetPortConfigInfo(device, &g_codecDaiData) != HDF_SUCCESS) {
+        return HDF_FAILURE;
+    }
+
     if (CodecGetConfigInfo(device, &g_hi3516CodecData) != HDF_SUCCESS) {
         return HDF_FAILURE;
     }
