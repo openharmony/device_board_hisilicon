@@ -1,4 +1,4 @@
-# Copyright (c) Huawei Technologies Co., Ltd. 2021-2022. All rights reserved.
+# Copyright (c) Huawei Technologies Co., Ltd. 2021-2023. All rights reserved.
 import("//drivers/peripheral/camera/hal/camera.gni")
 
 config("device_manager_config") {
@@ -62,14 +62,12 @@ if (defined(ohos_lite)) {
       "//commonlibrary/c_utils/base/include",
       "$board_camera_path/device_manager/include",
       "$camera_path/adapter/platform/mpp/src/device_manager/include",
-      "//drivers/peripheral/camera/interfaces/metadata/include",
       "//drivers/hdf_core/framework/include/utils",
       "//drivers/hdf_core/adapter/uhdf2/osal/include",
       "$board_camera_path/driver_adapter/include",
       "//base/hiviewdfx/hilog_lite/interfaces/native/innerkits",
     ]
-
-    deps = [ "//drivers/peripheral/camera/interfaces/metadata:metadata" ]
+    external_deps = [ "drivers_interface_camera:metadata" ]
     hispark_taurus_lib_path = "$board_camera_path/libs/liteos_a"
 
     outdir = rebase_path("$hispark_taurus_lib_path")
@@ -111,10 +109,7 @@ if (defined(ohos_lite)) {
       "$board_camera_path/device_manager/include",
       "$camera_path/adapter/platform/mpp/src/device_manager/include",
       "$board_camera_path/driver_adapter/include",
-      "//drivers/peripheral/camera/interfaces/metadata/include",
     ]
-
-    deps = [ "//drivers/peripheral/camera/interfaces/metadata:metadata" ]
 
     hispark_taurus_lib_path = "$board_camera_path/libs/linux"
 
@@ -131,7 +126,7 @@ if (defined(ohos_lite)) {
     } else {
       external_deps = [ "hilog:libhilog" ]
     }
-
+    external_deps += [ "drivers_interface_camera:metadata" ]
     public_configs = [ ":device_manager_config" ]
     install_images = [ chipset_base_dir ]
     subsystem_name = "hdf"
