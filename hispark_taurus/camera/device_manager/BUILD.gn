@@ -62,12 +62,13 @@ if (defined(ohos_lite)) {
       "//commonlibrary/c_utils/base/include",
       "$board_camera_path/device_manager/include",
       "$camera_path/adapter/platform/mpp/src/device_manager/include",
-      "//drivers/hdf_core/framework/include/utils",
-      "//drivers/hdf_core/adapter/uhdf2/osal/include",
       "$board_camera_path/driver_adapter/include",
       "//base/hiviewdfx/hilog_lite/interfaces/native/innerkits",
     ]
-    external_deps = [ "drivers_interface_camera:metadata" ]
+    external_deps = [
+      "drivers_interface_camera:metadata",
+      "hdf_core:libhdf_utils",
+    ]
     hispark_taurus_lib_path = "$board_camera_path/libs/liteos_a"
 
     outdir = rebase_path("$hispark_taurus_lib_path")
