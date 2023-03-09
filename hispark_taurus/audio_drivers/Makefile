@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2022 Huawei Device Co., Ltd.
+# Copyright (c) 2023 Huawei Device Co., Ltd.
 #
 # This software is licensed under the terms of the GNU General Public
 # License version 2, as published by the Free Software Foundation, and
@@ -36,6 +36,10 @@ ccflags-$(CONFIG_DRIVERS_HDF_AUDIO_HI3516CODEC) += \
         -I$(srctree)/$(KHDF_FRAMEWORK_ROOT_DIR)/include/core \
         -I$(srctree)/$(KHDF_FRAMEWORK_ROOT_DIR)/include/utils \
         -I$(srctree)/$(KHDF_FRAMEWORK_ROOT_DIR)/include/osal \
+        -I$(srctree)/drivers/hdf/inner_api/host/shared \
+        -I$(srctree)/drivers/hdf/inner_api/osal/shared \
+        -I$(srctree)/drivers/hdf/inner_api/utils \
+        -I$(srctree)/drivers/hdf/inner_api/core \
         -I$(srctree)/$(KHDF_FRAMEWORK_ROOT_DIR)/include/platform \
         -I$(srctree)/$(KHDF_FRAMEWORK_ROOT_DIR)/include/config \
         -I$(srctree)/$(KHDF_FRAMEWORK_ROOT_DIR)/include/audio \
