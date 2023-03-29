@@ -13,7 +13,7 @@
 
 ## 简介<a name="section11660541593"></a>
 
-[开发板介绍](https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-lite-introduction-hi3516.md)
+[开发板介绍](https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-appendix-hi3516.md)
 
 本目录主要用于放置hispark_taurus开发板相关内容，详情参见目录章节。
 
@@ -37,15 +37,15 @@
 
 ## 安装教程<a name="section161941989597"></a>
 
-liteos-a请参考：[mini环境](https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-lite-steps-hi3516-setting.md)
+liteos-a请参考：[mini环境](https://gitee.com/openharmony/docs/tree/master/zh-cn/device-dev/quick-start)
 
-linux请参考：[standard环境](https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-standard-running-hi3516-build.md)
+linux请参考：[standard环境](https://gitee.com/openharmony/docs/tree/master/zh-cn/device-dev/quick-start)
 
 ## 使用说明<a name="section161941989598"></a>
 
-liteos-a请参考：[mini使用](https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-lite-steps-hi3516.md)
+liteos-a请参考：[mini使用](https://gitee.com/openharmony/docs/tree/master/zh-cn/device-dev/quick-start)
 
-linux请参考：[standard使用](https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-standard-running-hi3516.md)
+linux请参考：[standard使用](https://gitee.com/openharmony/docs/tree/master/zh-cn/device-dev/quick-start)
 
 ## 约束<a name="section119744591305"></a>
 

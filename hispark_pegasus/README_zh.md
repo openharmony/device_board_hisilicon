@@ -13,15 +13,15 @@
 
 本目录主要用于放置hispark_pegasus开发板相关内容。
 
-[开发板介绍](https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-lite-steps-hi3861.md)
+[开发板介绍](https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-appendix-hi3861.md)
 
 ## 安装教程<a name="section161941989597"></a>
 
-liteos-m请参考：[环境指导](https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-lite-steps-hi3861-setting.md)
+liteos-m请参考：[环境指导](https://gitee.com/openharmony/docs/tree/master/zh-cn/device-dev/quick-start)
 
 ## 使用说明<a name="section161941989598"></a>
 
-liteos-m请参考：[使用说明](https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-lite-steps-hi3861.md)
+liteos-m请参考：[使用说明](https://gitee.com/openharmony/docs/tree/master/zh-cn/device-dev/quick-start)
 
 ## 约束<a name="section119744591305"></a>
 
@@ -29,7 +29,7 @@ liteos-m请参考：[使用说明](https://gitee.com/openharmony/docs/blob/maste
 
 ## 编译构建<a name="section137768191623"></a>
 
-[编译说明](https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-lite-steps-hi3861-building.md)
+[编译说明](https://gitee.com/openharmony/docs/tree/master/zh-cn/device-dev/quick-start)
 
 ## 协议说明<a name="section1312121216216"></a>
 
