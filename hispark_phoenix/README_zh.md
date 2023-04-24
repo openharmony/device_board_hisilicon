@@ -65,7 +65,7 @@ IDE方式完全采用DevEco Device Tool进行一站式开发，编译依赖工�
    - [配置远程访问环境][ide_envsetup_remote]
    - [创建工程并获取源码][ide_envsetup_import_project]
 
-[ide_envsetup_windows]: https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-ide-env--win.md
+[ide_envsetup_windows]: https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-ide-env-win.md
 [ide_envsetup_ubuntu]: https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-ide-env-ubuntu.md
 [ide_envsetup_remote]: https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-ide-env-remote.md
 [ide_envsetup_import_project]: https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-ide-import-project.md
@@ -89,9 +89,9 @@ IDE方式完全采用DevEco Device Tool进行一站式开发，编译依赖工�
 
 [OpenHarmony docker]: https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/get-code/gettools-acquire.md
 [pkg-prapare]: https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-pkg-prepare.md
-[pkg-installation]: https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-pkg-install_package.md
+[pkg-installation]: https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-pkg-install-package.md
 [aquire-sourcecode]: https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-pkg-sourcecode.md
-[install-toolchain]: https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-pkg-install_tool.md
+[install-toolchain]: https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-pkg-install-tool.md
 
 
 ## 代码下载<a name="section119744591305"></a>
