@@ -130,8 +130,8 @@ if (defined(ohos_lite)) {
       "//foundation/communication/ipc/ipc/native/src/core/include",
       "//foundation/communication/ipc/interfaces/innerkits/ipc_core/include",
       "//commonlibrary/c_utils/base/include",
-      "//foundation/graphic/surface/interfaces/kits",
-      "//foundation/graphic/utils/interfaces/kits",
+      "//foundation/graphic/surface_lite/interfaces/kits",
+      "//foundation/graphic/graphic_utils_lite/interfaces/kits",
 
       # hcs parser
       "//system/core/include/cutils",
