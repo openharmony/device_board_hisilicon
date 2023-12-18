@@ -98,6 +98,13 @@ Note:If the text contains special characters, please escape them according to th
 				<filteritem type="filepath" name="hispark_taurus/linux/updater/.*" desc="updater config"/>
 				<filteritem type="filepath" name="hispark_taurus/linux/system/.*.xml" desc="burn config"/>
 				<filteritem type="filepath" name="hispark_taurus/linux/config.gni" desc="build config"/>
+                <filteritem type="filepath" name="hispark_phoenix/linux/boot/logo.img" desc="Temp files"/>
+                <filteritem type="filepath" name="hispark_phoenix/linux/boot/bootargs.bin" desc="Temp files"/>
+                <filteritem type="filepath" name="hispark_phoenix/linux/boot/slaveboot.bin" desc="Temp files"/>
+                <filteritem type="filepath" name="hispark_phoenix/linux/boot/atf.bin" desc="Temp files"/>
+                <filteritem type="filepath" name="hispark_phoenix/linux/boot/fastboot.bin" desc="Temp files"/>
+                <filteritem type="filepath" name="hispark_phoenix/linux/boot/panel.img" desc="prebuilt boot images"/>
+                <filteritem type="filepath" name="hispark_phoenix/linux/boot/dtbo.img" desc="prebuilt boot images"/>
 			</filefilter>
 			<filefilter name="licenseFileNamePolicyFilter" desc="Filters for LICENSE file policies" >
 				<!--filteritem type="filepath" name="dir name underproject/.*" desc="Describe the reason for filtering scan results"/-->
