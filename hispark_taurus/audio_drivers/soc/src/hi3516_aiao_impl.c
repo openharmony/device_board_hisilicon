@@ -164,7 +164,7 @@ static int32_t AiaoGetLrclkSel(const uint32_t lrclkDiv, uint32_t *lrclkSel)
     return HDF_FAILURE;
 }
 
-void AiaoHalWriteReg(uint32_t offset, uint32_t value)
+static void AiaoHalWriteReg(uint32_t offset, uint32_t value)
 {
     if (g_regAiaoBase == NULL) {
         AUDIO_DEVICE_LOG_ERR("g_aio_base is null.\n");

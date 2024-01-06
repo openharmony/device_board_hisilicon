@@ -234,7 +234,7 @@ static int32_t SetIISRate(const struct DaiDevice *device, struct AudioMixerContr
     return HDF_SUCCESS;
 }
 
-int32_t DaiParamsUpdate(const struct DaiDevice *device)
+static int32_t DaiParamsUpdate(const struct DaiDevice *device)
 {
     uint32_t value;
     struct AudioMixerControl *regCfgItem = NULL;

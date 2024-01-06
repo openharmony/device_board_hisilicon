@@ -205,7 +205,7 @@ static int DspSpiPinInit(void)
     return HDF_SUCCESS;
 }
 
-DevHandle DspSpiOpen(const struct SpiDevInfo *info)
+static DevHandle DspSpiOpen(const struct SpiDevInfo *info)
 {
     if (info == NULL) {
         AUDIO_DRIVER_LOG_ERR("DspSpiOpen fail");
@@ -215,7 +215,7 @@ DevHandle DspSpiOpen(const struct SpiDevInfo *info)
     return OsalMemCalloc(1);
 }
 
-void DspSpiClose(DevHandle handle)
+static void DspSpiClose(DevHandle handle)
 {
     if (handle == NULL) {
         AUDIO_DRIVER_LOG_ERR("DspSpiClose fail");
@@ -224,7 +224,7 @@ void DspSpiClose(DevHandle handle)
     OsalMemFree(handle);
     AUDIO_DRIVER_LOG_DEBUG("DspSpiClose success");
 }
-int32_t DspSpiTransfer(DevHandle handle, const uint8_t *msgs, const uint32_t count)
+static int32_t DspSpiTransfer(DevHandle handle, const uint8_t *msgs, const uint32_t count)
 {
     if (handle == NULL || msgs == NULL || count == 0) {
         AUDIO_DRIVER_LOG_ERR("DspSpiTransfer fail");
@@ -233,7 +233,7 @@ int32_t DspSpiTransfer(DevHandle handle, const uint8_t *msgs, const uint32_t cou
     AUDIO_DRIVER_LOG_DEBUG("DspSpiTransfer success");
     return HDF_SUCCESS;
 }
-int32_t DspSpiRead(DevHandle handle, const uint8_t *buf, const uint32_t len)
+static int32_t DspSpiRead(DevHandle handle, const uint8_t *buf, const uint32_t len)
 {
     if (handle == NULL || buf == NULL || len == 0) {
         AUDIO_DRIVER_LOG_ERR("DspSpiRead fail");
@@ -243,7 +243,7 @@ int32_t DspSpiRead(DevHandle handle, const uint8_t *buf, const uint32_t len)
     return HDF_SUCCESS;
 }
 
-int32_t DspSpiSetCfg(DevHandle handle, struct SpiCfg *cfg)
+static int32_t DspSpiSetCfg(DevHandle handle, struct SpiCfg *cfg)
 {
     if (handle == NULL || cfg == NULL) {
         AUDIO_DRIVER_LOG_ERR("DspSpiSetCfg fail");
@@ -252,7 +252,7 @@ int32_t DspSpiSetCfg(DevHandle handle, struct SpiCfg *cfg)
     AUDIO_DRIVER_LOG_DEBUG("DspSpiSetCfg success");
     return HDF_SUCCESS;
 }
-int32_t DspSpiGetCfg(DevHandle handle, struct SpiCfg *cfg)
+static int32_t DspSpiGetCfg(DevHandle handle, struct SpiCfg *cfg)
 {
     if (handle == NULL || cfg == NULL) {
         AUDIO_DRIVER_LOG_ERR("DspSpiGetCfg fail");

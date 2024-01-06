@@ -161,7 +161,7 @@ int32_t Tfa9879DaiStartup(const struct AudioCard *card, const struct DaiDevice *
     return HDF_SUCCESS;
 }
 
-int32_t Tfa9879FrequencyParse(uint32_t rate, uint16_t *freq)
+static int32_t Tfa9879FrequencyParse(uint32_t rate, uint16_t *freq)
 {
     if (freq == NULL) {
         AUDIO_DRIVER_LOG_ERR("input param is NULL");
@@ -213,7 +213,7 @@ int32_t Tfa9879FrequencyParse(uint32_t rate, uint16_t *freq)
 }
 
 // update external codec I2S frequency
-int32_t Tfa9879DaiParamsUpdate(struct DaiDevice *codecDai, struct DaiParamsVal daiParamsVal)
+static int32_t Tfa9879DaiParamsUpdate(struct DaiDevice *codecDai, struct DaiParamsVal daiParamsVal)
 {
     int32_t ret;
     struct AudioMixerControl *regAttr = NULL;
