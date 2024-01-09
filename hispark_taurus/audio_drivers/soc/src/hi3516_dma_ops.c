@@ -187,7 +187,7 @@ int32_t Hi3516DmaBufFree(struct PlatformData *data, const enum AudioStreamType s
     return HDF_SUCCESS;
 }
 
-int32_t  Hi3516DmaRequestChannel(const struct PlatformData *data, const enum AudioStreamType streamType)
+int32_t Hi3516DmaRequestChannel(const struct PlatformData *data, const enum AudioStreamType streamType)
 {
     (void)data;
     return HDF_SUCCESS;
