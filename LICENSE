@@ -2,19 +2,17 @@
 ./hispark_taurus/camera
 ./hispark_taurus/linux
 ./hispark_taurus/liteos_a/board
-./hispark_taurus/uboot/secureboot_release
-./hispark_phoenix/peripherals/bluetooth/rtkbt/code
 ./hispark_aries/liteos_a/board
 
 (2) The directories below are licensed under GNU General Public License, version 2.
 ./hispark_taurus/audio_drivers
 ./hispark_taurus/display_drivers
 ./hispark_aries/uboot/secureboot_release
+./hispark_taurus/uboot/secureboot_release
 
 (3) The directories below are licensed under End User License Agreement.
 ./hispark_taurus/uboot/reg
 ./hispark_taurus/uboot/prebuilts
-./hispark_phoenix/peripherals/bluetooth/rtkbt/Firmware
 ./hispark_phoenix/linux/boot
 ./hispark_aries/uboot/reg
 
