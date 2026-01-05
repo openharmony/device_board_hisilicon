@@ -2,8 +2,7 @@ import("//drivers/peripheral/camera/camera.gni")
 
 if (defined(ohos_lite)) {
   import("//build/ohos.gni")
-  import("//drivers/hdf_core/adapter/uhdf/uhdf.gni")
-  import("//drivers/hdf_core/framework/tools/hc-gen/hc_gen.gni")
+  import("//build/config/components/hc_gen/hc_gen.gni")
 
   hc_gen_c("generate_source") {
     sources = [
