@@ -1,0 +1,14 @@
+{
+  "parts": {
+    "device_hispark_aifly": {
+      "module_list": [
+        "//device/board/hisilicon/${device_name}:hispark_aifly",
+        "//device/soc/hisilicon/hi3403v100/sdk_linux:hispark_aifly_sdk"
+      ],
+      "test_list": [
+        "//kernel/linux/build/test:linuxkerneltest"
+      ]
+    }
+  },
+  "subsystem": "device_hispark_aifly"
+}
