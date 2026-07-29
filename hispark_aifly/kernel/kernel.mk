@@ -71,6 +71,12 @@ endif
 	$(hide) chmod 755 $(DEVICE_PATCH_DIR)/patch_$(DEVICE_NAME).sh
 	$(hide) cd $(KERNEL_SRC_TMP_PATH);$(DEVICE_PATCH_DIR)/patch_$(DEVICE_NAME).sh $(DEVICE_PATCH_DIR)
 
+# Link SOC HDF driver directory into kernel tree for path dependency compilation
+	$(hide) echo "link hi3403 hdf driver to kernel tree..."
+	$(hide) mkdir -p $(KERNEL_SRC_TMP_PATH)/drivers/hdf
+	$(hide) ln -sfn $(OHOS_BUILD_HOME)/device/soc/hisilicon/hi3403v100/hdf_driver \
+	    $(KERNEL_SRC_TMP_PATH)/drivers/hdf/soc_driver
+
 ifeq ($(UNIFIED_COLLECTION_PATCH_FILE), $(wildcard $(UNIFIED_COLLECTION_PATCH_FILE)))
 	$(hide) $(UNIFIED_COLLECTION_PATCH_FILE) $(OHOS_BUILD_HOME) $(KERNEL_SRC_TMP_PATH) $(DEVICE_NAME) $(KERNEL_VERSION)
 endif
