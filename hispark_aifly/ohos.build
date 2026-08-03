@@ -7,6 +7,9 @@
       ],
       "test_list": [
         "//kernel/linux/build/test:linuxkerneltest"
+      ],
+      "feature_list": [
+        "device_hispark_aifly_display_type"
       ]
     }
   },
