@@ -27,6 +27,7 @@
         -   [硬件连接](#section19369206114234)
     -   [方式一：ToolPlatform工具烧写（Windows）](#section19369206114235)
     -   [方式二：命令行烧写（Linux/Windows）](#section19369206114238)
+    -   [方式三：USB自动烧写（Windows）](#section19369206114239)
 -   [快速体验](#section_quick_start)
     -   [桌面展示](#section_quick_start_desktop)
     -   [相机应用](#section_quick_start_camera)
@@ -199,7 +200,7 @@ bash build/prebuilts_download.sh
    初次编译需要打补丁，添加编译参数--patch，编译命令：  
       ```
         ./build.sh --product-name ipcamera_hispark_aifly_linux --ccache  --no-prebuilt-sdk --patch 
-   ```     
+      ```
   
    > 注 撤消patch方法：
    >如需撤销patch.yml中所有patch，执行vendor/hisilicon/hispark_aifly_linux下的patch_revert.py脚本，如：
@@ -250,11 +251,12 @@ bash build/prebuilts_download.sh
 
 ## 烧录说明<a name="section19369206114230"></a>
 
-HiSpark_AiFly开发板支持两种烧录方式：
+HiSpark_AiFly开发板支持三种烧录方式：
 - **方式一**：ToolPlatform工具烧写（Windows）
 - **方式二**：命令行烧写（Linux/Windows）
+- **方式三**：USB自动烧写（Windows）
 
-两种烧录方式均依赖串口和网口连接，需提前完成相关配置。
+前两种烧录方式依赖串口和网口连接，方式三依赖USB连接，烧录前需提前完成相关配置。
 
 ### 烧写配置依赖<a name="section19369206114231"></a>
 
@@ -287,40 +289,46 @@ HiSpark_AiFly开发板支持两种烧录方式：
    GND    连接       GND
    （备注:usb串口模组连接电脑且usb串口设备实际线序根据设备标注的线序进行连接）
    ```
+   图6：串口连接示例
    ![串口连接示例](figures/serial_port.png)
 
 - 相机模组连接示例：
+图7：相机模组连接示例
 ![相机模组连接示例](figures/sensor.png)
 
 - 其他外设连接示例：
    - HDMI连接带音频的HDMI显示器
    - HDC使用TYPE-C连接电脑USB接口
-![其他外设连接示例](figures/other.png)
-
+   图8：其它外设连接示例
+   ![其他外设连接示例](figures/other.png)
 
 ### 方式一：ToolPlatform工具烧写（Windows）<a name="section19369206114235"></a>
 
-#### 前置步骤
+#### 网口烧写
+
+##### 前置步骤
+
 1. **下载安装烧录工具**
-   - 下载安装 [ToolPlatform](https://hispark-obs.obs.cn-east-3.myhuaweicloud.com/ToolPlatform-1.0.11-win32-x86_64.zip)
+   - 下载安装 [ToolPlatform](https://hispark-obs.obs.cn-east-3.myhuaweicloud.com/ToolPlatform-CAM-5.6.79-win32-x86_64.zip)
    - 下载并安装 [Tftpd64](https://pjo2.github.io/tftpd64/)
 
 2. **准备烧录镜像**
    
-   图6：镜像示例
-   ![镜像示例图](figures/images.png)
-
-2. **配置Tftpd64**
+   图9：镜像示例
+   
+   ![镜像示例图](./figures/images.png)
+   
+3. **配置Tftpd64**
    
    用于提升toolplatform工具的烧录效率。
-   图7：Tftpd配置
+   图10：Tftpd配置
    ![Tftpd配置](figures/interface_configuration2.png)
 
-#### 烧录步骤
+##### 烧录步骤
 1. **配置ToolPlatform**
    
-   图8：ToolPlatform配置
-   ![ToolPlatform配置](figures/interface_configuration.png)
+   图11：ToolPlatform配置
+   ![ToolPlatform配置](./figures/interface_configuration.png)
 
 2. **执行烧录**
    - 点击烧录按钮
@@ -330,16 +338,65 @@ HiSpark_AiFly开发板支持两种烧录方式：
 **注意事项**：
 - 烧录前，不要使用其他串口工具连接设备，否则会占用串口导致烧录失败
 
+#### USB烧写<a name="section19369206114236"></a>
+
+##### 前置步骤
+
+1. **下载安装烧录工具**
+   - 下载安装 [ToolPlatform](https://hispark-obs.obs.cn-east-3.myhuaweicloud.com/ToolPlatform-CAM-5.6.79-win32-x86_64.zip)
+   - 板端已烧录过uboot固件
+   - 安装USB驱动：下载 [zadig](https://zadig.akeo.ie)，双击运行，选择 `Options->List All Devices`，点击选择List All Devices。
+
+     图12：zadig选择设备
+     ![zadig选择设备](figures/zadig_install1.png)
+
+     重启开发板，敲击回车进入uboot命令行模式，输入 `usb device`（超时退出请重新输入）。
+
+     图13：zadig输入usb device
+     ![zadig输入usb device](figures/zadig_install2.png)
+
+     在zadig中选择 `USBBurn`，安装驱动 `libusb-win32`。
+
+     **注：若安装libusb-win32后重启电脑无法烧写，说明该驱动不适用，请改用 `libusbK` 驱动重新安装。**
+
+     图14：zadig安装libusb-win32
+     ![zadig安装libusb-win32](figures/zadig_install3.png)
+
+     安装完成后PC设备管理器出现 `USBBurn` 设备，然后重启开发板。
+
+     图15：zadig安装完成
+     ![zadig安装完成](figures/zadig_install4.png)
+
+2. **准备烧录镜像**
+
+   图16：镜像示例
+   
+   ![镜像示例图](./figures/images.png)
+
+##### 烧录步骤
+
+1. **配置ToolPlatform**
+
+   图17：ToolPlatform配置
+   ![ToolPlatform配置](figures/interface_configuration3.png)
+
+2. **执行烧录**
+   - 点击烧录按钮
+   - 同时按下 `RESET` 和 `UPDATE` 按键，1秒后松开 `RESET`，保持按住 `UPDATE`
+   - 待控制台显示红色 `Open usb success` 后松开 `UPDATE`；若5秒内未显示，则再次按下并松开 `RESET`，直到显示成功
+   - 等待烧录完毕
+
 ### 方式二：命令行烧写（Linux/Windows）<a name="section19369206114238"></a>
 
 #### 前置步骤
+
 1. **部署TFTP服务**
-   
+
    **Windows**：
    - 打开Tftpd64，选择Tftp Server
    - 设置路径 `/tftpboot`
    - 服务端IP为客户端IP或回环地址 `127.0.0.1`
-   
+
    **Ubuntu**：
    ```bash
    apt-get update
@@ -347,7 +404,7 @@ HiSpark_AiFly开发板支持两种烧录方式：
    mkdir /tftpboot
    chmod 777 /tftpboot
    ```
-   
+
    编辑 `/etc/default/tftpd-hpa`，修改以下内容：
    ```
    TFTP_USERNAME="tftp"
@@ -355,7 +412,7 @@ HiSpark_AiFly开发板支持两种烧录方式：
    TFTP_ADDRESS="0.0.0.0:69"
    TFTP_OPTIONS="-l -c -s"
    ```
-   
+
    重启服务使配置生效：
    ```bash
    systemctl restart tftpd-hpa.service
@@ -367,18 +424,26 @@ HiSpark_AiFly开发板支持两种烧录方式：
    - 开发板已烧录u-boot镜像
    - 准备TFTP目录并拷贝烧录文件至 `/tftpboot`
 
-3. **生成histart脚本**
+3. **准备烧录镜像**
+
+   图18：镜像示例
+
+   ![镜像示例图](./figures/images1.png)
+
+4. **生成histart脚本**
+
    ```bash
    cd /tftpboot
    python3 gen_hstart.py emmc_burn_table.xml
    ```
-   
+
    输出：在XML所在目录生成 `histart.txt` 和 `scripts/` 文件夹。
 
 #### 烧录步骤
+
 1. **连接串口**
    - 使用串口线连接开发板和PC
-   图9：串口工具波特率配置图
+   图19：串口工具波特率配置图
 
    ![串口工具波特率配置图](figures/Baud_rate_configuration.png)
 
@@ -404,8 +469,87 @@ HiSpark_AiFly开发板支持两种烧录方式：
 5. **完成烧录**
    - 烧录完成后开发板自动重启
    
-   图10：HiSpark_AiFly开发套件启动图
+   图20：HiSpark_AiFly开发套件启动图
    ![HiSpark_AiFly开发套件启动图](figures/HiSpark_AiFly_w.png)
+
+### 方式三：USB自动烧写（Windows）<a name="section19369206114239"></a>
+
+支持同时烧录多块开发板。
+
+#### 前置步骤
+
+1. **下载安装烧录工具**
+   
+   - 下载安装 [BurnToolCLI](https://hispark-obs.obs.cn-east-3.myhuaweicloud.com/BurnToolCLI-5.6.48-win32-x86_64.zip)（Windows版，本处以Windows为例）；另有[Linux版](https://hispark-obs.obs.cn-east-3.myhuaweicloud.com/BurnToolCLI-5.6.48-linux-x86_64.zip)，使用方法请阅读BurnToolCLI下的readme
+   - 板端已烧录过uboot固件
+   - 安装USB驱动：步骤同[**方式一的USB烧写**](#section19369206114236)——下载 [zadig](https://zadig.akeo.ie)，为 `USBBurn` 设备安装 `libusb-win32` 驱动（若重启电脑后无法烧写，请改用 `libusbK` 驱动）
+   
+2. **准备烧录镜像**
+
+   图21：镜像示例
+   
+   ![镜像示例图](./figures/images3.png)
+
+#### 烧录步骤
+
+1. 将固件目录 `images` 拷贝到命令行烧录工具 `BurnToolCLI` 目录下
+
+   图22：拷贝images目录
+   ![拷贝images目录](figures/BurnToolCLI_burn1.png)
+
+2. 在 `BurnToolCLI` 目录下打开cmd终端，执行 `set_partition_sel.py` 脚本
+
+   ```bash
+   cd images
+   python3 set_partition_sel.py
+   cd ..
+   ```
+
+   图23：执行分区选择脚本
+   ![执行分区选择脚本](figures/BurnToolCLI_burn2.png)
+
+3. 打开 `config\burn.config`，修改 `usbDeviceNumber=0` 并保存；若只烧录一块开发板，可跳过本步骤，直接执行步骤7、8。
+
+4. 回到PC CMD终端执行USB烧录命令，开始烧录并查看识别到的USB号
+
+   ```bash
+   .\jre\bin\java -jar -Xms256m -Xmx1024m burntoolcli.jar --burn -n SD3403V100 -m USBBootrom -x .\images\emmc_burn_table.xml
+   ```
+
+   图24：查看USB号
+   ![查看USB号1](figures/BurnToolCLI_burn3.png)
+
+   图25：查看USB号
+   ![查看USB号2](figures/BurnToolCLI_burn4.png)
+
+   例如识别到USB号为 `5_1` 和 `10`。
+
+5. 复制 `BurnToolCLI` 目录，烧录几块板子就打开几个cmd窗口
+
+   图26：复制BurnToolCLI目录
+   ![复制BurnToolCLI目录](figures/BurnToolCLI_burn5.png)
+
+   图27：打开多个cmd窗口
+   ![打开多个cmd窗口](figures/BurnToolCLI_burn6.png)
+
+6. 修改 `usbDeviceNumber=识别到的USB号`（多板烧录时指定其中一个，其余保持默认，即可同时烧录）
+
+   图28：修改usbDeviceNumber
+   ![修改usbDeviceNumber](figures/BurnToolCLI_burn7.png)
+
+7. 所有板端输入以下命令进入USB烧录模式
+
+   ```bash
+   devmem 0x11021300 4 0xFFFFFFFF && reboot
+   ```
+
+8. 回到PC，在所有CMD终端再次执行USB烧录命令，开始烧录
+
+   ```bash
+   .\jre\bin\java -jar -Xms256m -Xmx1024m burntoolcli.jar --burn -n SD3403V100 -m USBBootrom -x .\images\emmc_burn_table.xml
+   ```
+
+**注意：** 烧录完成后开发板自动重启；若烧录中断，开发板超时1分钟后将自动重启。
 
 ## 快速体验<a name="section_quick_start"></a>
 
@@ -415,6 +559,7 @@ HiSpark_AiFly开发板支持两种烧录方式：
 
 系统启动后，显示器将展示OpenHarmony桌面界面。
 
+图29：HiSpark_AiFly桌面展示
 ![HiSpark_AiFly桌面展示](./figures/desktop.png)
 
 ### 相机应用<a name="section_quick_start_camera"></a>
@@ -422,6 +567,7 @@ HiSpark_AiFly开发板支持两种烧录方式：
 1. 在桌面点击**相机**应用图标，打开相机。
 2. 点击拍摄按钮完成拍照，缩略图将显示在屏幕左上角。
 
+图30：相机拍照展示
 ![相机拍照展示](./figures/take_a_picture.png)
 
 ### 媒体播放<a name="section_quick_start_media"></a>
@@ -430,8 +576,10 @@ HiSpark_AiFly开发板支持两种烧录方式：
 2. 在桌面点击**图库**应用，打开图库查看照片和视频。
 3. 点击视频文件即可开始播放。
 
+图31：图库展示
 ![图库展示](./figures/gallery_display.png)
 
+图32：视频播放展示
 ![视频播放展示](./figures/player.png)
 
 ## 约束<a name="section119744591305"></a>
