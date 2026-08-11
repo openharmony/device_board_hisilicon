@@ -66,10 +66,21 @@ storage_type = "emmc"
 
 board_macro_defines = [ "ENABLE_ARM_NEON=0" ]
 
-# define screen width/height
-board_macro_defines += [
+# define screen width/height, follow the display type: mipi 1024x600, hdmi 1920x1080
+declare_args() {
+  device_hispark_aifly_display_type = "hdmi"
+}
+if (device_hispark_aifly_display_type == "mipi") {
+  board_macro_defines += [
+    "HORIZONTAL_RESOLUTION=1024",
+    "VERTICAL_RESOLUTION=600",
+  ]
+} else {
+  board_macro_defines += [
     "HORIZONTAL_RESOLUTION=1920",
     "VERTICAL_RESOLUTION=1080",
-]
+  ]
+}
 
 custom_display_ld_flags = [ "-ldisplay_layer" ]
+
