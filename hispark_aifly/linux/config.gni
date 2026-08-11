@@ -84,3 +84,6 @@ if (device_hispark_aifly_display_type == "mipi") {
 
 custom_display_ld_flags = [ "-ldisplay_layer" ]
 
+# Media interface upgrade
+media_interface_upgrade = "v1_0"
+board_macro_defines += [ "MEDIA_INTERFACE_V1_0" ]
