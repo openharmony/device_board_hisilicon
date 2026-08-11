@@ -300,7 +300,7 @@ HiSpark_AiFly开发板支持三种烧录方式：
    - HDMI连接带音频的HDMI显示器
    - HDC使用TYPE-C连接电脑USB接口
    图8：其它外设连接示例
-   ![其他外设连接示例](figures/other.png)
+   ![其它外设连接示例](figures/other.png)
 
 ### 方式一：ToolPlatform工具烧写（Windows）<a name="section19369206114235"></a>
 
