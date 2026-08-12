@@ -129,6 +129,10 @@ Note:If the text contains special characters, please escape them according to th
 				<filteritem type="filename" name="*.img|*.gif" desc="prebuilt boot images"/>
 				<filteritem type="filename" name="rtl8723d_config" desc="rtl8723d config"/>
 				<filteritem type="filename" name="rtl8723d_fw" desc="rtl8723d fw"/>
+				<filteritem type="filepath" name="hispark_aifly/kernel/sig_ko/ble_soc.ko" desc="Temp file"/>
+				<filteritem type="filepath" name="hispark_aifly/kernel/sig_ko/plat_soc.ko" desc="Temp file"/>
+				<filteritem type="filepath" name="hispark_aifly/kernel/sig_ko/sle_soc.ko" desc="Temp file"/>
+				<filteritem type="filepath" name="hispark_aifly/kernel/sig_ko/wifi_soc.ko" desc="Temp file"/>
 				</filefilter>
 
 		</filefilterlist>
