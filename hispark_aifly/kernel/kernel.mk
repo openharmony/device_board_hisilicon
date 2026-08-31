@@ -130,6 +130,11 @@ endif
 		$(KERNEL_OBJ_TMP_PATH)/drivers/gpu/drm/drm_kms_helper.ko \
 		$(KERNEL_OBJ_TMP_PATH)/drivers/gpu/drm/drm_dma_helper.ko \
 		$(KERNEL_OBJ_TMP_PATH)/drivers/gpu/drm/display/drm_display_helper.ko \
-		$(KERNEL_OBJ_TMP_PATH)/drivers/gpu/drm/hisilicon/smart_vision/smart_drm.ko
+		$(KERNEL_OBJ_TMP_PATH)/drivers/gpu/drm/hisilicon/smart_vision/smart_drm.ko \
+		$(OHOS_BUILD_HOME)/device/board/hisilicon/$(DEVICE_NAME)/kernel/sig_ko/ble_soc.ko \
+		$(OHOS_BUILD_HOME)/device/board/hisilicon/$(DEVICE_NAME)/kernel/sig_ko/plat_soc.ko \
+		$(OHOS_BUILD_HOME)/device/board/hisilicon/$(DEVICE_NAME)/kernel/sig_ko/sle_soc.ko \
+		$(OHOS_BUILD_HOME)/device/board/hisilicon/$(DEVICE_NAME)/kernel/sig_ko/wifi_soc.ko 
+
 .PHONY: build-kernel
 build-kernel: $(KERNEL_IMAGE_FILE)
