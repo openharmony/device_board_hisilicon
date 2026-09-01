@@ -1,0 +1,25 @@
+# Copyright (c) 2026 HiSilicon (Shanghai) Technologies Co., Ltd.
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+import("//build/lite/config/component/lite_component.gni")
+import("//build/ohos/kernel/kernel.gni")
+
+build_ext_component("build_kernel") {
+    no_default_deps = true
+    exec_path = rebase_path(".", root_build_dir)
+    outdir = rebase_path("$root_out_dir")
+    build_type = "small"
+    product_path_rebase = rebase_path(product_path, ohos_root_path)
+    command = "chmod +x ./kernel_module_build.sh && ./kernel_module_build.sh ${outdir} ${build_type} ${target_cpu} ${product_path_rebase} ${board_name} ${linux_kernel_version}"
+}
