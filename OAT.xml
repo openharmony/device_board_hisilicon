@@ -59,6 +59,7 @@ Note:If the text contains special characters, please escape them according to th
 		<licensefile>hispark_taurus/linux/LICENSE|hispark_taurus/liteos_a/board/LICENSE|hispark_taurus/uboot/reg/LICENSE|hispark_aries/uboot/reg/LICENSE|hispark_taurus/audio_drivers/LICENSE|</licensefile>
         <policylist>
             <policy name="projectPolicy" desc="">
+				<policyitem type="copyright" name="HiSilicon (Shanghai) Technologies Co., Ltd." path=".*" rule="may" group="defaultGroup" desc="HiSilicon (Shanghai) copyright"/>
 				<policyitem type="copyright" name="Copyright (c) 2020 HiSilicon (Shanghai) Technologies CO., LIMITED." path=".*" desc="HiSilicon copyright"/>
 				<policyitem type="copyright" name="Copyright (c) 2021 HiSilicon (Shanghai) Technologies CO., LIMITED." path=".*" desc="HiSilicon copyright"/>
 				<policyitem type="copyright" name="Copyright (C) 2020 Hisilicon (Shanghai) Technologies Co., Ltd. All rights reserved." path=".*" desc="HiSilicon copyright"/>
@@ -128,6 +129,10 @@ Note:If the text contains special characters, please escape them according to th
 				<filteritem type="filename" name="*.img|*.gif" desc="prebuilt boot images"/>
 				<filteritem type="filename" name="rtl8723d_config" desc="rtl8723d config"/>
 				<filteritem type="filename" name="rtl8723d_fw" desc="rtl8723d fw"/>
+				<filteritem type="filepath" name="hispark_aifly/kernel/sig_ko/ble_soc.ko" desc="Temp file"/>
+				<filteritem type="filepath" name="hispark_aifly/kernel/sig_ko/plat_soc.ko" desc="Temp file"/>
+				<filteritem type="filepath" name="hispark_aifly/kernel/sig_ko/sle_soc.ko" desc="Temp file"/>
+				<filteritem type="filepath" name="hispark_aifly/kernel/sig_ko/wifi_soc.ko" desc="Temp file"/>
 				</filefilter>
 
 		</filefilterlist>
